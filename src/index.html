@@ -10,54 +10,97 @@
 </head>
 <link rel="stylesheet" href="styles/bootstrap.min.css"/>
 <link rel="stylesheet" href="styles/main.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet">
 <body>
-<header class="header">
-    <div class="container-fluid">
-        <div class="header__menu-fixed">
-            <nav class="header__menu menu">
-                <ul class="menu__wrapper">
-                    <li class="menu__elem active">
-                        <a href="#">Главная</a>
-                    </li>
-                    <li class="menu__elem">
-                        <a href="#">Характеристики</a>
-                    </li>
-                    <li class="menu__elem">
-                        <a href="#">Преимущества</a>
-                    </li>
-                    <li class="menu__elem">
-                        <a href="#">Отзывы</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="container">
-        <div class="header__top">
-            <h1 class="header__top-i12">i12 TWS</h1>
-            <h2 class="header__top-i12desc">Элегантность белого. Дерзость черного</h2>
-            <hr />
-            <h2 class="header__top-i12desc2">Беспроводные наушники для всех типов смартфонов</h2>
-            <ul class="header__advantages">
-                <li class="header__advantages-item">Беспроводная зарядка в подарок</li>
-                <li class="header__advantages-item">Бесплатная доставка</li>
-                <li class="header__advantages-item">Всегда лучшие цены</li>
-            </ul>
-            <div class="header__form">
-                <label class="header__mobile-hint" for="header__mobile-number">Введите ваш телефон: <span class="header__required">*</span></label>
-                <input class="header__mobile-number" id="header__mobile-number" type="text" placeholder="Номер телефона" required />
-                <button class="header__buy">Заказать</button>
+<header class="header" >
+    <div class="header__wrapper">
+        <div class="container-fluid">
+            <div class="header__menu-fixed wow animate__fadeIn" data-wow-delay=".3s">
+                <nav class="header__menu menu">
+                    <ul class="menu__wrapper">
+                        <li class="menu__elem active">
+                            <a href="#">Главная</a>
+                        </li>
+                        <li class="menu__elem">
+                            <a href="#">Характеристики</a>
+                        </li>
+                        <li class="menu__elem">
+                            <a href="#">Преимущества</a>
+                        </li>
+                        <li class="menu__elem">
+                            <a href="#">Отзывы</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <img class="header__black-i12" src="images/black-i12.png" />
+        <div class="container">
+            <div class="header__top">
+                <h1 class="header__top-i12">i12 TWS</h1>
+                <h2 class="header__top-i12desc">Элегантность белого. Дерзость черного</h2>
+                <hr/>
+                <h2 class="header__top-i12desc2">Беспроводные наушники для всех типов смартфонов</h2>
+                <ul class="header__advantages wow animate__fadeInRight" data-wow-delay=".7s" data-wow-duration="1.3s">
+                    <li class="header__advantages-item">Беспроводная зарядка в подарок</li>
+                    <li class="header__advantages-item">Бесплатная доставка</li>
+                    <li class="header__advantages-item">Всегда лучшие цены</li>
+                </ul>
+                <div class="header__form wow animate__fadeInLeft" data-wow-delay=".9s">
+                    <label class="header__mobile-hint" for="header__mobile-number">Введите ваш телефон: <span
+                            class="header__required">*</span></label>
+                    <input class="header__mobile-number" id="header__mobile-number" type="text" placeholder="Номер телефона"
+                           required/>
+                    <button class="header__buy">Заказать</button>
+                </div>
+            </div>
+            <img class="header__black-i12 wow animate__fadeInUp" data-wow-delay="1s" src="images/black-i12.png"/>
+        </div>
     </div>
 </header>
 <main>
     <section class="why-we">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header why-we__header wow animate__fadeInUp" data-wow-delay=".3s">
                 <h2>Премиальное качество и надежность в ваших руках</h2>
+            </div>
+            <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
+                <div class="col-6 text-left order-2">
+                    <img class="why-we__item-img suppliers" src="images/why-we/suppliers.png"/>
+                </div>
+                <div class="col-6 order-1 why-we__item-content">
+                    <h3 class="why-we__item-header">Только проверенные поставщики.</h3>
+                    <p class="why-we__item-text">Каждый заказ проходит полную проверку перед отправкой.</p>
+                </div>
+            </div>
+            <div class="why-we__item row wow animate__fadeInRight" data-wow-delay=".7s">
+                <div class="col-6 text-right">
+                    <img class="why-we__item-img guarantee" src="images/why-we/guarantee.png"/>
+                </div>
+                <div class="col-6 why-we__item-content">
+                    <h3 class="why-we__item-header">100% контроль качества.</h3>
+                    <p class="why-we__item-text">Больше не нужно искать качественный товар, мы сделали это за
+                        Вас.</p>
+                </div>
+            </div>
+            <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
+                <div class="col-6 text-left order-2">
+                    <img class="why-we__item-img communication" src="images/why-we/communication.png"/>
+                </div>
+                <div class="col-6 order-1 why-we__item-content">
+                    <h3 class="why-we__item-header">Мы всегда на связи.</h3>
+                    <p class="why-we__item-text">Служба поддержки ответит на любой вопрос.</p>
+                </div>
+            </div>
+            <div class="why-we__item row wow animate__fadeInRight" data-wow-delay=".7s">
+                <div class="col-6 text-right">
+                    <img class="why-we__item-img truck" src="images/why-we/truck.png"/>
+                </div>
+                <div class="col-6 why-we__item-content">
+                    <h3 class="why-we__item-header">Безопасная оплата и быстрая доставка.</h3>
+                    <p class="why-we__item-text">Оплачивайте и получайте товар в ближайшем отделении почты России.
+                        Доставка занимает в среднем 3-5 дней.</p>
+                </div>
             </div>
         </div>
     </section>

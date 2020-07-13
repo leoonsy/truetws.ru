@@ -3,8 +3,9 @@
 @import "../../node_modules/bootstrap/scss/_functions";
 @import "../../node_modules/bootstrap/scss/_variables";
 @import "../../node_modules/bootstrap/scss/_mixins";
+@import "../../node_modules/animate.css/animate.min";
 
-html, body, #wrapper {
+html, body {
   overflow-x: hidden;
 }
 
@@ -38,20 +39,36 @@ a:hover {
 
 .section-header {
   text-align: center;
-  padding: 4rem 10px 3rem;
+  padding: 6rem 10px 3rem;
 
   h2 {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    width: 150px;
+    height: 2px;
+    background: rgba(6, 40, 102, 0.77);
+    text-align: center;
+    margin: 1.7rem auto 0;
   }
 }
 
 /** Шапка **/
 
 .header {
-  background: url("../images/header.jpg") 50% 65% no-repeat;
-  height: 870px;
-  background-size: cover;
-  position: relative;
+  background: #fafafa;
+
+  &__wrapper {
+    background: url("../images/header.jpg") 50% 65% no-repeat;
+    clip-path: polygon(50% 0%, 100% 0, 100% 91%, 50% 100%, 0 91%, 0% 60%, 0 0);
+    height: 980px;
+    background-size: cover;
+    position: relative;
+  }
+
 }
 
 /** Меню **/
@@ -72,7 +89,7 @@ a:hover {
   &__black-i12 {
     position: absolute;
     right: 100px;
-    bottom: 50px;
+    bottom: 125px;
     width: 200px;
     transition: all .4s ease;
 
@@ -197,8 +214,8 @@ a:hover {
 
   &__form {
     box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.21);
-    padding: 20px;
-    border-radius: 3px;
+    padding: 25px;
+    border-radius: 3px 25px 3px;
     display: inline-block;
     margin: 0 0 10px;
     text-align: center;
@@ -212,7 +229,7 @@ a:hover {
     display: block;
     margin: 0 auto 25px;
     width: 200px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     border: none;
     padding: 15px 0;
     border-bottom: solid 1px $mobile-color;
@@ -244,6 +261,45 @@ a:hover {
 /** Почему мы **/
 
 .why-we {
-  background: url("../images/why-we.png") repeat #fff;
-  height: 800px;
+  background: #fafafa;
+
+  &__item {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 4rem 0 2rem 0;
+  }
+
+  &__header {
+
+  }
+
+  &__item-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__item-img {
+    width: 150px;
+    &.suppliers {
+      width: 200px;
+    }
+
+    &.truck {
+      width: 250px;
+    }
+  }
+
+
+  &__item-header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 10px;
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
 }
