@@ -13,28 +13,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet">
 <body>
+<div class="menu animate__animated animate__fadeIn">
+    <nav class="menu__nav animate__animated animate__fadeIn">
+        <ul class="menu__nav-wrapper">
+            <li class="menu__elem active">
+                <a href="#">Главная</a>
+            </li>
+            <li class="menu__elem">
+                <a href="#">Характеристики</a>
+            </li>
+            <li class="menu__elem">
+                <a href="#">Преимущества</a>
+            </li>
+            <li class="menu__elem">
+                <a href="#">Отзывы</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="menu__phone">
+        <a class="menu__phone-number" href="tel:+79871989378">+7(987)198-93-78</a>
+        <div class="menu__phone-text">Работаем круглосуточно!</div>
+    </div>
+</div>
 <header class="header" >
     <div class="header__wrapper">
-        <div class="container-fluid">
-            <div class="header__menu-fixed wow animate__fadeIn" data-wow-delay=".3s">
-                <nav class="header__menu menu">
-                    <ul class="menu__wrapper">
-                        <li class="menu__elem active">
-                            <a href="#">Главная</a>
-                        </li>
-                        <li class="menu__elem">
-                            <a href="#">Характеристики</a>
-                        </li>
-                        <li class="menu__elem">
-                            <a href="#">Преимущества</a>
-                        </li>
-                        <li class="menu__elem">
-                            <a href="#">Отзывы</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
         <div class="container">
             <div class="header__top">
                 <h1 class="header__top-i12">i12 TWS</h1>
@@ -43,7 +45,7 @@
                 <h2 class="header__top-i12desc2">Беспроводные наушники для всех типов смартфонов</h2>
                 <ul class="header__advantages wow animate__fadeInRight" data-wow-delay=".7s" data-wow-duration="1.3s">
                     <li class="header__advantages-item">Беспроводная зарядка в подарок</li>
-                    <li class="header__advantages-item">Бесплатная доставка</li>
+                    <li class="header__advantages-item">Быстрая доставка</li>
                     <li class="header__advantages-item">Всегда лучшие цены</li>
                 </ul>
                 <div class="header__form wow animate__fadeInLeft" data-wow-delay=".9s">
@@ -61,7 +63,7 @@
 <main>
     <section class="why-we">
         <div class="container">
-            <div class="section-header why-we__header wow animate__fadeInUp" data-wow-delay=".3s">
+            <div class="why-we__header section-header wow animate__fadeInUp" data-wow-delay=".3s">
                 <h2>Премиальное качество и надежность в ваших руках</h2>
             </div>
             <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
@@ -103,6 +105,51 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="characters">
+        <div class="container-fluid characters__container">
+            <div class="characters__header section-header wow animate__fadeInUp" data-wow-delay=".3s">
+                <h2>Абсолютное превосходство</h2>
+                <h3>Широкий диапазон функций i12TWS</h3>
+            </div>
+            <div class="row">
+                <div class="col d-flex">
+                    <div class="characters__item-wrapper wow animate__fadeInLeft" data-wow-delay=".7s">
+                        <div class="characters__item">
+                            <h4 class="characters__item-header">Система активного шумоподавления</h4>
+                            <span class="characters__item-text">Качественное шумоподавление справится с назойливыми шумами от метро, улицы или автобуса. </span>
+                        </div>
+                        <div class="characters__item">
+                            <h4 class="characters__item-header">Беспроводная связь Bluetooth 5.0</h4>
+                            <span class="characters__item-text">Благодаря данной технологии увеличивается скорость сопряжения и дальность передачи.</span>
+                        </div>
+                        <div class="characters__item">
+                            <h4 class="characters__item-header">Быстрая зарядка для долгого наслаждения</h4>
+                            <span class="characters__item-text">Заряжаются в течение 1 часа, до 6 часов работы при прослушивании музыки.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <div class="characters__item-wrapper wow animate__fadeInRight" data-wow-delay=".7s">
+                        <div class="characters__item right">
+                            <h4 class="characters__item-header">Автоматическая синхронизация</h4>
+                            <span class="characters__item-text">Наушники автоматически синхронизируются между собой, что обеспечивает корректность звучания музыки.</span>
+                        </div>
+                        <div class="characters__item right">
+                            <h4 class="characters__item-header">Сенсорное управление</h4>
+                            <span class="characters__item-text">Удобное управление с помощью касаний встроенного сенсора.</span>
+                        </div>
+                        <div class="characters__item right">
+                            <h4 class="characters__item-header">Универсальность</h4>
+                            <span class="characters__item-text">Для смартфонов с любой операционной системой (iPhone, Android).</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-center">
+        Новая секция
     </section>
 </main>
 </body>

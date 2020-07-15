@@ -3942,6 +3942,10 @@ a:hover {
   font-size: 2.7rem;
 }
 
+.section-header h3 {
+  gont-size: 2.2rem;
+}
+
 .section-header::after {
   display: block;
   content: "";
@@ -3967,18 +3971,6 @@ a:hover {
 }
 
 /** Меню **/
-.header__menu-fixed {
-  position: fixed;
-  left: 0;
-  right: 0;
-  background: rgba(20, 20, 20, 0.85);
-  z-index: 100;
-}
-
-.header__menu {
-  padding: 10px 0 5px 0;
-}
-
 .header__black-i12 {
   position: absolute;
   right: 100px;
@@ -3996,6 +3988,24 @@ a:hover {
 }
 
 .menu {
+  -webkit-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  padding: 10px 0 5px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.85);
+  z-index: 1000;
+}
+
+.menu.out {
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.menu__nav {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4011,7 +4021,7 @@ a:hover {
   font-size: 1.1rem;
 }
 
-.menu__wrapper {
+.menu__nav-wrapper {
   list-style: none;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4063,6 +4073,36 @@ a:hover {
 
 .menu__elem.active a {
   color: #fff;
+}
+
+.menu__phone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 15px;
+  color: #dbdbdb;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.menu__phone-number {
+  color: #ffffff !important;
+  padding: 0;
+}
+
+.menu__phone-number:hover {
+  color: #d7f3ff !important;
 }
 
 @-webkit-keyframes line {
@@ -4118,7 +4158,7 @@ a:hover {
 
 .header__buy {
   padding: 15px 50px;
-  background: rgba(47, 47, 47, 0.85);
+  background: rgba(27, 99, 160, 0.87);
   border: 1px solid transparent;
   -webkit-border-radius: 40px;
   border-radius: 40px;
@@ -4221,6 +4261,10 @@ a:hover {
   width: 250px;
 }
 
+.why-we__item-img.communication {
+  width: 220px;
+}
+
 .why-we__item-header {
   font-size: 1.8rem;
   font-weight: 600;
@@ -4231,6 +4275,63 @@ a:hover {
 .why-we__item-text {
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+/** Характеристики **/
+.characters {
+  background-size: cover;
+  background-image: url("../images/characters-back.png");
+  background-position: 55% 15%;
+  color: #fff;
+  padding: 0 0 4rem;
+}
+
+.characters__container {
+  padding: 0 40px;
+}
+
+.characters__header {
+  padding: 6rem 10px 5rem;
+}
+
+.characters__header::after {
+  background-color: #395b86;
+}
+
+.characters__item-wrapper {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 70%;
+  -ms-flex: 0 1 70%;
+  flex: 0 1 70%;
+}
+
+.characters__item {
+  border-left: 1px solid #395b86;
+  border-top: 1px solid #395b86;
+  padding: 40px 15px 40px;
+}
+
+.characters__item.right {
+  border-left: none;
+  border-right: 1px solid #395b86;
+}
+
+.characters__item:first-child {
+  border-top: none;
+  padding-top: 5px;
+}
+
+.characters__item:last-child {
+  padding-bottom: 5px;
+}
+
+.characters__item-header {
+  font-size: 1.7rem;
+}
+
+.characters__item-text {
+  font-size: 1.2rem;
+  color: #c6c6c6;
 }
 
 /*# sourceMappingURL=main.min.css.map */

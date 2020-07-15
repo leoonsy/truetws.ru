@@ -45,6 +45,10 @@ a:hover {
     font-size: 2.7rem;
   }
 
+  h3 {
+    gont-size: 2.2rem;
+  }
+
   &::after {
     display: block;
     content: "";
@@ -74,18 +78,6 @@ a:hover {
 /** Меню **/
 
 .header {
-  &__menu-fixed {
-    position: fixed;
-    left: 0;
-    right: 0;
-    background: rgba(20, 20, 20, 0.85);
-    z-index: 100;
-  }
-
-  &__menu {
-    padding: 10px 0 5px 0;
-  }
-
   &__black-i12 {
     position: absolute;
     right: 100px;
@@ -100,12 +92,26 @@ a:hover {
 }
 
 .menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
+  transition: all .5s ease;
+  padding: 10px 0 5px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.85);
+  z-index: 1000;
 
-  &__wrapper {
+  &.out {
+    transform: translateY(-100%);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+
+  &__nav-wrapper {
     list-style: none;
     display: flex;
     margin: 0;
@@ -145,6 +151,26 @@ a:hover {
       a {
         color: #fff;
       }
+    }
+  }
+
+  &__phone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 15px;
+    color: #dbdbdb;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  &__phone-number {
+    color: #ffffff !important;
+    padding: 0;
+
+    &:hover {
+      color: #d7f3ff !important;
     }
   }
 }
@@ -198,7 +224,8 @@ a:hover {
 
   &__buy {
     padding: 15px 50px;
-    background: rgba(47, 47, 47, 0.85);
+    background: rgba(27, 99, 160, 0.87);
+    //color: #0066ff;
     border: 1px solid transparent;
     border-radius: 40px;
     font-size: 1.5rem;
@@ -288,6 +315,10 @@ a:hover {
     &.truck {
       width: 250px;
     }
+
+    &.communication {
+      width: 220px;
+    }
   }
 
 
@@ -303,3 +334,59 @@ a:hover {
     font-weight: 400;
   }
 }
+
+/** Характеристики **/
+
+.characters {
+  background-size: cover;
+  background-image: url('../images/characters-back.png');
+  background-position: 55% 15%;
+  color: #fff;
+  padding: 0 0 4rem;
+
+  &__container {
+    padding: 0 40px;
+  }
+
+  &__header {
+    padding: 6rem 10px 5rem;
+    &::after {
+      background-color: $character-border-color;
+    }
+  }
+
+  &__item-wrapper {
+    flex: 0 1 70%;
+  }
+
+  &__item {
+    border-left: 1px solid $character-border-color;
+    border-top: 1px solid $character-border-color;
+    padding: 40px 15px 40px;
+
+    &.right {
+      border-left: none;
+      border-right: 1px solid $character-border-color;
+    }
+
+    &:first-child {
+      border-top: none;
+      padding-top: 5px;
+    }
+
+    &:last-child {
+      padding-bottom: 5px;
+    }
+  }
+
+  &__item-header {
+    font-size: 1.7rem;
+
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    color: #c6c6c6;
+  }
+}
+
