@@ -40,6 +40,10 @@ a:hover {
 .section-header {
   text-align: center;
   padding: 6rem 10px 3rem;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 
   h2 {
     font-size: 2.7rem;
@@ -49,14 +53,24 @@ a:hover {
     gont-size: 2.2rem;
   }
 
-  &::after {
-    display: block;
+  &::before {
     content: "";
-    width: 150px;
-    height: 2px;
-    background: rgba(6, 40, 102, 0.77);
-    text-align: center;
-    margin: 1.7rem auto 0;
+    position: absolute;
+    width: 140px;
+    bottom: 15px;
+    height: 1px;
+    background: #ebebeb;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: 4px;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    background: #2977af;
   }
 }
 
@@ -296,7 +310,9 @@ a:hover {
   }
 
   &__header {
-
+    &::after {
+      border: 5px solid #fafafa;
+    }
   }
 
   &__item-content {
@@ -339,19 +355,38 @@ a:hover {
 
 .characters {
   background-size: cover;
-  background-image: url('../images/characters-back.png');
-  background-position: 55% 15%;
+  background-image: url('../images/char-back.jpg');
+  background-position: 50% 50%;
   color: #fff;
   padding: 0 0 4rem;
+  position: relative;
+
+  &__i12tws {
+    position: absolute;
+    top: 23rem;
+    left: 50%;
+    width: 270px;
+    margin-left: -135px;
+  }
 
   &__container {
     padding: 0 40px;
   }
 
   &__header {
-    padding: 6rem 10px 5rem;
+    padding: 6rem 10px 7rem;
+
+    &::before {
+      bottom: 64px;
+      background: $character-border-color;
+    }
+
     &::after {
-      background-color: $character-border-color;
+      bottom: 56px;
+      width: 16px;
+      height: 16px;
+      border: none;
+      background: #929292;
     }
   }
 
@@ -381,12 +416,103 @@ a:hover {
 
   &__item-header {
     font-size: 1.7rem;
-
   }
 
   &__item-text {
     font-size: 1.2rem;
     color: #c6c6c6;
   }
+
+  &__buy-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 0 0;
+  }
+
+  &__buy {
+    margin: 15px 0 0 0;
+    padding: 22px 70px;
+    background: rgba(27, 99, 160, 0.87);
+    border-radius: 40px;
+    font-size: 1.7rem;
+    color: #ffffff;
+    transition: all ease .4s;
+    text-align: center;
+    border: none;
+
+    &:hover {
+      background: rgb(231, 231, 231);
+      color: #262626;
+    }
+  }
+}
+
+/** Timeline **/
+
+.timeline {
+  background: #fafafa;
+  &__content {
+    margin: 4rem 0 0 0;
+    position: relative;
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 105px;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      content: "";
+      background-color: #e0e0e0;
+      z-index: 1;
+    }
+  }
+
+  &__item {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    z-index: 10;
+  }
+
+  &__item-content {
+    flex: 0 1 35%;
+    padding: 0 0 0 7%;
+    text-align: right;
+  }
+
+  &__item--inverted {
+    justify-content: flex-end;
+    .timeline__item-content {
+      padding: 0 7% 0 0;
+      text-align: left;
+    }
+  }
+
+  &__item-img {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    img {
+      width: 100%;
+      border: 7px solid #e9ecef;
+      border-radius: 100%;
+    }
+  }
+
+  &__item-header {
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    padding: .5rem 0 0 0;
+    color: #404040;
+  }
+
 }
 
