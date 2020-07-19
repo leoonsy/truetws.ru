@@ -654,7 +654,7 @@ a:hover {
 
 .buy-1 {
   background-color: #000;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 81%);
+  //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 81%);
   position: relative;
 
   &__container {
@@ -678,7 +678,7 @@ a:hover {
 
   &__i12-white {
     position: absolute;
-    bottom: 90px;
+    bottom: 160px;
     right: 200px;
     width: 270px;
   }
@@ -687,7 +687,7 @@ a:hover {
     color: #ffffff;
     //background-color: #164b82;
     width: 65%;
-    padding: 40px 40px 170px;
+    padding: 40px 40px 220px;
     border-radius: 20px 20px 0 0;
   }
 
@@ -698,7 +698,7 @@ a:hover {
       content: "";
       height: 2px;
       width: 400px;
-      border-bottom: 1px dashed #fff;
+      border-bottom: 1px dashed #7b7b7b;
       display: block;
       margin: 1.2rem 0 0 0;
     }
@@ -721,6 +721,11 @@ a:hover {
   &__discount-price {
     margin: 2rem 0 0 0;
   }
+
+  &__wave {
+    position: absolute;
+    bottom: 0;
+  }
 }
 
 .price {
@@ -742,16 +747,17 @@ a:hover {
 
   &__number {
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: .3rem 0 0 0;
   }
 
   &__number-old {
     flex: 0 0 50%;
-    background: #fff;
+    background: #ffffff;
     padding: 10px;
-    color: #000;
+    color: #666666;
     border-radius: 30px 0 0 30px;
+    text-decoration: line-through;
   }
 
   &__number-new {
@@ -760,6 +766,7 @@ a:hover {
     background: $new-price-bg;
     border-radius: 0 30px 30px 0;
     position: relative;
+    font-weight: 700;
 
     &::after {
         content: "";
@@ -776,4 +783,5 @@ a:hover {
 
 .buy-2 {
   height: 400px;
+
 }
