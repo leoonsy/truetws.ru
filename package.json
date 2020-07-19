@@ -64,6 +64,7 @@
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
     "jquery.maskedinput": "^1.4.1",
+    "slick-carousel": "^1.8.1",
     "wow.js": "^1.2.2"
   }
 }
