@@ -27,6 +27,10 @@ body {
   font-display: swap;
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
 a,
 a:active,
 a:link,
@@ -76,6 +80,10 @@ a:hover {
     border-radius: 20px;
     background: #2977af;
   }
+}
+
+.text-blue {
+  color: #0c82d0;
 }
 
 /** Шапка **/
@@ -179,8 +187,13 @@ a:hover {
     right: 15px;
     color: #dbdbdb;
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
+    align-items: center;
+  }
+
+  &__phone-img {
+    width: 40px;
+    margin: 0 17px 0 0;
   }
 
   &__phone-number {
@@ -370,7 +383,7 @@ a:hover {
     top: 23rem;
     left: 50%;
     width: 270px;
-    margin-left: -135px;
+    transform: translateX(-50%);
   }
 
   &__container {
@@ -692,7 +705,7 @@ a:hover {
   }
 
   &__discount-header {
-    font-size: 1.7rem;
+    font-size: 2.2rem;
 
     &::after {
       content: "";
@@ -705,7 +718,7 @@ a:hover {
   }
 
   &__discount-end {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-top: 1.2rem;
   }
 
@@ -747,7 +760,7 @@ a:hover {
 
   &__number {
     display: flex;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin: .3rem 0 0 0;
   }
 
@@ -782,6 +795,188 @@ a:hover {
 }
 
 .buy-2 {
-  height: 400px;
+  &__i12-black {
+    width: 270px;
+    height: auto;
+  }
 
+  &__gift {
+    font-size: 2.3rem;
+    font-weight: 600;
+  }
+
+  &__form {
+    margin: 2rem auto;
+  }
+}
+
+.buy-form {
+  padding: 40px 30px;
+  background: #e7e7e7;
+  width: 100%;
+  border-radius: 13px;
+
+  &__text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  &__agreement {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 1rem 0 0 0;
+  }
+
+  input {
+    display: block;
+
+    &[type="text"] {
+      transition: all 0.30s ease-in-out;
+      outline: none;
+      width: 100%;
+      background: #fff;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      color: #555;
+      border-radius: 8px;
+
+      &:focus, {
+        box-shadow: 0 0 5px #55d2ff;
+        padding: 10px;
+        border: 1px solid #58d6ff;
+      }
+    }
+
+    &[type="submit"],
+    &[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background: #07aae0;
+      border-bottom: 2px solid #077be0;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      color: #fff;
+      border-radius: 8px;
+
+      &:hover {
+        background: #029aee;
+      }
+    }
+  }
+}
+
+/** Как получить наушники **/
+
+.how-works {
+  background: #fcfcfc;
+
+  &__header {
+    &::after {
+      border: 5px solid #fcfcfc;
+    }
+  }
+
+  &__main {
+    padding: 1rem 100px 2rem;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  &__sequence {
+    display: flex;
+    background: url("../images/how-works/how-to.png") center top no-repeat;
+    background-size: 95% auto;
+    height: 350px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 1.3rem;
+  }
+
+  &__basket {
+    flex: 1 0 23%;
+    position: relative;
+    bottom: 100px;
+  }
+
+  &__form {
+    flex: 1 0 18%;
+  }
+
+  &__call {
+    flex: 1 0 21%;
+    position: relative;
+    bottom: 30px;
+  }
+
+  &__send {
+    flex: 1 0 19%;
+  }
+
+  &__check {
+    flex: 1 0 19%;
+  }
+
+  &__sequence-mobile {
+    display: none;
+    margin: 1.4rem 0 0 0;
+    text-align: center;
+    & p {
+      margin: 0.5rem 0 1rem 0;
+    }
+    & img {
+      width: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: #{map-get($grid-breakpoints, 'xl')}) {
+  .how-works {
+    &__basket {
+      bottom: 50px;
+      left: -10px;
+    }
+
+    &__form {
+      left: 25px;
+      bottom: 5px;
+    }
+
+    &__call {
+      left: 9px;
+      bottom: 25px;
+    }
+
+    &__send {
+      left: 8px;
+      bottom: 10px;
+    }
+
+    &__check {
+      left: 13px;
+    }
+  }
+}
+
+@media only screen and (max-width: #{map-get($grid-breakpoints, 'lg')}) {
+  .how-works {
+    &__sequence {
+      display: none;
+    }
+
+    &__sequence-mobile {
+      display: flex;
+    }
+  }
 }

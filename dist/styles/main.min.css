@@ -4189,6 +4189,10 @@ body {
   font-display: swap;
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
 a,
 a:active,
 a:link,
@@ -4251,6 +4255,10 @@ a:hover {
   -webkit-border-radius: 20px;
   border-radius: 20px;
   background: #2977af;
+}
+
+.text-blue {
+  color: #0c82d0;
 }
 
 /** Шапка **/
@@ -4382,15 +4390,19 @@ a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.menu__phone-img {
+  width: 40px;
+  margin: 0 17px 0 0;
 }
 
 .menu__phone-number {
@@ -4593,7 +4605,9 @@ a:hover {
   top: 23rem;
   left: 50%;
   width: 270px;
-  margin-left: -135px;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .characters__container {
@@ -4934,7 +4948,7 @@ a:hover {
 }
 
 .buy-1__discount-header {
-  font-size: 1.7rem;
+  font-size: 2.2rem;
 }
 
 .buy-1__discount-header::after {
@@ -4947,7 +4961,7 @@ a:hover {
 }
 
 .buy-1__discount-end {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-top: 1.2rem;
 }
 
@@ -5001,7 +5015,7 @@ a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: .3rem 0 0 0;
 }
 
@@ -5044,8 +5058,221 @@ a:hover {
   transform: skewX(-15deg) skewY(0);
 }
 
-.buy-2 {
-  height: 400px;
+.buy-2__i12-black {
+  width: 270px;
+  height: auto;
+}
+
+.buy-2__gift {
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+.buy-2__form {
+  margin: 2rem auto;
+}
+
+.buy-form {
+  padding: 40px 30px;
+  background: #e7e7e7;
+  width: 100%;
+  -webkit-border-radius: 13px;
+  border-radius: 13px;
+}
+
+.buy-form__text {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.buy-form__agreement {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.buy-form__form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin: 1rem 0 0 0;
+}
+
+.buy-form input {
+  display: block;
+}
+
+.buy-form input[type="text"] {
+  -webkit-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  outline: none;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #555;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.buy-form input[type="text"]:focus {
+  -webkit-box-shadow: 0 0 5px #55d2ff;
+  box-shadow: 0 0 5px #55d2ff;
+  padding: 10px;
+  border: 1px solid #58d6ff;
+}
+
+.buy-form input[type="submit"], .buy-form input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  background: #07aae0;
+  border-bottom: 2px solid #077be0;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  color: #fff;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+}
+
+.buy-form input[type="submit"]:hover, .buy-form input[type="button"]:hover {
+  background: #029aee;
+}
+
+/** Как получить наушники **/
+.how-works {
+  background: #fcfcfc;
+}
+
+.how-works__header::after {
+  border: 5px solid #fcfcfc;
+}
+
+.how-works__main {
+  padding: 1rem 100px 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.how-works__sequence {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background: url("../images/how-works/how-to.png") center top no-repeat;
+  background-size: 95% auto;
+  height: 350px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  font-size: 1.3rem;
+}
+
+.how-works__basket {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 23%;
+  -ms-flex: 1 0 23%;
+  flex: 1 0 23%;
+  position: relative;
+  bottom: 100px;
+}
+
+.how-works__form {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 18%;
+  -ms-flex: 1 0 18%;
+  flex: 1 0 18%;
+}
+
+.how-works__call {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 21%;
+  -ms-flex: 1 0 21%;
+  flex: 1 0 21%;
+  position: relative;
+  bottom: 30px;
+}
+
+.how-works__send {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 19%;
+  -ms-flex: 1 0 19%;
+  flex: 1 0 19%;
+}
+
+.how-works__check {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 19%;
+  -ms-flex: 1 0 19%;
+  flex: 1 0 19%;
+}
+
+.how-works__sequence-mobile {
+  display: none;
+  margin: 1.4rem 0 0 0;
+  text-align: center;
+}
+
+.how-works__sequence-mobile p {
+  margin: 0.5rem 0 1rem 0;
+}
+
+.how-works__sequence-mobile img {
+  width: 100px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .how-works__basket {
+    bottom: 50px;
+    left: -10px;
+  }
+  .how-works__form {
+    left: 25px;
+    bottom: 5px;
+  }
+  .how-works__call {
+    left: 9px;
+    bottom: 25px;
+  }
+  .how-works__send {
+    left: 8px;
+    bottom: 10px;
+  }
+  .how-works__check {
+    left: 13px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .how-works__sequence {
+    display: none;
+  }
+  .how-works__sequence-mobile {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 /*# sourceMappingURL=main.min.css.map */
