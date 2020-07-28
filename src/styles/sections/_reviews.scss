@@ -1,0 +1,44 @@
+// Отзывы
+@import "../variables";
+
+.reviews {
+  position: relative;
+  &__header {
+    padding: 6rem 10px 7rem;
+
+    &::before {
+      bottom: 64px;
+      background: #717171
+    }
+
+    &::after {
+      bottom: 56px;
+      width: 16px;
+      height: 16px;
+      border: none;
+      background: rgb(75, 75, 75);
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    z-index: -1;
+    background-image: url('../../images/i12-together.jpg');
+    background-size: cover;
+    background-position: 50% 93%;
+  }
+
+  &__main {
+    margin: 2.4rem 100px 0;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}

@@ -1,0 +1,96 @@
+// Характеристики
+@import "../variables";
+
+.characters {
+  background-size: cover;
+  background-image: url('../../images/char-back.jpg');
+  background-position: 50% 50%;
+  color: #fff;
+  padding: 0 0 4rem;
+  position: relative;
+
+  &__i12tws {
+    position: absolute;
+    top: 23rem;
+    left: 50%;
+    width: 270px;
+    transform: translateX(-50%);
+  }
+
+  &__container {
+    padding: 0 40px;
+  }
+
+  &__header {
+    padding: 6rem 10px 7rem;
+
+    &::before {
+      bottom: 64px;
+      background: $character-border-color;
+    }
+
+    &::after {
+      bottom: 56px;
+      width: 16px;
+      height: 16px;
+      border: none;
+      background: #929292;
+    }
+  }
+
+  &__item-wrapper {
+    flex: 0 1 70%;
+  }
+
+  &__item {
+    border-left: 1px solid $character-border-color;
+    border-top: 1px solid $character-border-color;
+    padding: 40px 15px 40px;
+
+    &.right {
+      border-left: none;
+      border-right: 1px solid $character-border-color;
+    }
+
+    &:first-child {
+      border-top: none;
+      padding-top: 5px;
+    }
+
+    &:last-child {
+      padding-bottom: 5px;
+    }
+  }
+
+  &__item-header {
+    font-size: 1.7rem;
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    color: #c6c6c6;
+  }
+
+  &__buy-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 0 0;
+  }
+
+  &__buy {
+    margin: 15px 0 0 0;
+    padding: 22px 70px;
+    background: rgba(27, 99, 160, 0.87);
+    border-radius: 40px;
+    font-size: 1.7rem;
+    color: #ffffff;
+    transition: all ease .4s;
+    text-align: center;
+    border: none;
+
+    &:hover {
+      background: rgb(231, 231, 231);
+      color: #262626;
+    }
+  }
+}

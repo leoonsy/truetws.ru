@@ -9,12 +9,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 </head>
 <link rel="stylesheet" href="styles/bootstrap.min.css"/>
-<link rel="stylesheet" href="styles/main.min.css"/>
+<link rel="stylesheet" href="styles/sections/main.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet">
 <body>
 <div class="wrapper">
     <div class="menu animate__animated animate__fadeIn">
+        <input type="checkbox" id="checkbox" class="menu__mobile-checkbox">
+        <label for="checkbox" class="menu__mobile-btn">
+            <div class="menu__mobile-icon"></div>
+        </label>
         <nav class="menu__nav animate__animated animate__fadeIn">
             <ul class="menu__nav-wrapper">
                 <li class="menu__elem active">
@@ -35,7 +39,7 @@
             <img src="images/tel.svg" alt="" class="menu__phone-img">
             <div class="menu__phone-text">
                 <a class="menu__phone-number" href="tel:+79871989378">+7(987)198-93-78</a>
-                <div class="menu__phone-text">Работаем круглосуточно!</div>
+                <div class="menu__phone-time">Работаем круглосуточно!</div>
             </div>
         </div>
     </div>
@@ -59,7 +63,8 @@
                         <input class="header__mobile-number" id="header__mobile-number" type="text"
                                placeholder="Номер телефона"
                                required/>
-                        <button class="header__buy">Заказать</button>
+                        <button class="header__buy">Оставить заявку</button>
+                        <div class="header__form-end">и получить скидку в размере <span>50%</span></div>
                     </div>
                 </div>
                 <img class="header__black-i12 wow animate__fadeInUp" data-wow-delay="1s" src="images/black-i12.png"/>
@@ -198,7 +203,7 @@
                                 <img src="images/timeline/love-work.jpg"/>
                             </div>
                             <div class="timeline__item-header">Для занятия любимым делом</div>
-                            <div class="timeline__item-text">Занимайтесь любимым делом под лучшие треки.</div>
+                            <div class="timeline__item-text">Занимайтесь любимым делом под лучшие треки!</div>
                         </div>
                     </div>
                 </div>
@@ -325,6 +330,30 @@
                             <img src="images/how-works/5.png" alt="Кошелек"/>
                             <p>Вы проверяете и оплачиваете товар на почте</p></div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="container-fluid">
+                <div class="section-header reviews__header wow animate__fadeInUp" data-wow-delay=".3s">
+                    <h2>Отзывы наших клиентов</h2>
+                </div>
+                <div class="reviews__main">
+                    <div class="row">
+                        <div class="col">
+                            <img class="reviews__img" src="images/reviews/1.jpg" />
+                        </div>
+                        <div class="col">
+                            <img class="reviews__img" src="images/reviews/2.jpg" />
+                        </div>
+                        <div class="col">
+                            <img class="reviews__img" src="images/reviews/3.jpg" />
+                        </div>
+                        <div class="col">
+                            <img class="reviews__img" src="images/reviews/4.jpg" />
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>

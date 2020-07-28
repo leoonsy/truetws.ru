@@ -1,0 +1,212 @@
+// Покупка
+@import "../variables";
+
+.buy-1 {
+  background-color: #000;
+  //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 81%);
+  position: relative;
+
+  &__container {
+    padding: 0 40px;
+  }
+
+  &__header {
+    padding: 6rem 10px 4rem;
+    margin: 0 0 4rem 0;
+    color: #fff;
+
+    &::before {
+      background: $character-border-color;
+    }
+
+    &::after {
+      border: 5px solid #000;
+      background: #929292;
+    }
+  }
+
+  &__i12-white {
+    position: absolute;
+    bottom: 160px;
+    right: 200px;
+    width: 270px;
+  }
+
+  &__discount {
+    color: #ffffff;
+    //background-color: #164b82;
+    width: 65%;
+    padding: 40px 40px 220px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  &__discount-header {
+    font-size: 2.2rem;
+
+    &::after {
+      content: "";
+      height: 2px;
+      width: 400px;
+      border-bottom: 1px dashed #7b7b7b;
+      display: block;
+      margin: 1.2rem 0 0 0;
+    }
+  }
+
+  &__discount-end {
+    font-size: 1.7rem;
+    margin-top: 1.2rem;
+  }
+
+  &__discount-percent {
+    color: #ff0000;
+    font-weight: 700;
+  }
+
+  &__discount-time {
+    font-weight: 600;
+  }
+
+  &__discount-price {
+    margin: 2rem 0 0 0;
+  }
+
+  &__wave {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.price {
+  width: 400px;
+  text-align: center;
+
+  &__text {
+    display: flex;
+    font-size: 1.4rem;
+  }
+
+  &__text-old {
+    flex: 0 0 50%;
+  }
+
+  &__text-new {
+    flex: 0 0 50%;
+  }
+
+  &__number {
+    display: flex;
+    font-size: 2rem;
+    margin: .3rem 0 0 0;
+  }
+
+  &__number-old {
+    flex: 0 0 50%;
+    background: #ffffff;
+    padding: 10px;
+    color: #666666;
+    border-radius: 30px 0 0 30px;
+    text-decoration: line-through;
+  }
+
+  &__number-new {
+    flex: 0 0 50%;
+    padding: 10px;
+    background: $new-price-bg;
+    border-radius: 0 30px 30px 0;
+    position: relative;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+      width: 30px;
+      height: 100%;
+      background: $new-price-bg;
+      position: absolute;
+      left: -9px;
+      top: 0;
+      transform: skewX(-15deg) skewY(0);
+    }
+  }
+}
+
+.buy-2 {
+  &__i12-black {
+    width: 270px;
+    height: auto;
+  }
+
+  &__gift {
+    font-size: 2.3rem;
+    font-weight: 600;
+  }
+
+  &__form {
+    margin: 2rem auto;
+  }
+}
+
+.buy-form {
+  padding: 40px 30px;
+  background: #e7e7e7;
+  width: 100%;
+  border-radius: 13px;
+
+  &__text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  &__agreement {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 1rem 0 0 0;
+  }
+
+  input {
+    display: block;
+
+    &[type="text"] {
+      transition: all 0.30s ease-in-out;
+      outline: none;
+      width: 100%;
+      background: #fff;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      color: #555;
+      border-radius: 8px;
+
+      &:focus, {
+        box-shadow: 0 0 5px #55d2ff;
+        padding: 10px;
+        border: 1px solid #58d6ff;
+      }
+    }
+
+    &[type="submit"],
+    &[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background: #07aae0;
+      border-bottom: 2px solid #077be0;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      color: #fff;
+      border-radius: 8px;
+
+      &:hover {
+        background: #029aee;
+      }
+    }
+  }
+}

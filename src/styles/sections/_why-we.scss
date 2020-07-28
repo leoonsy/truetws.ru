@@ -1,0 +1,53 @@
+// Почему мы
+@import "../variables";
+
+.why-we {
+  background: #fafafa;
+
+  &__item {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 4rem 0 2rem 0;
+  }
+
+  &__header {
+    &::after {
+      border: 5px solid #fafafa;
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__item-img {
+    width: 150px;
+
+    &.suppliers {
+      width: 200px;
+    }
+
+    &.truck {
+      width: 250px;
+    }
+
+    &.communication {
+      width: 220px;
+    }
+  }
+
+
+  &__item-header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 10px;
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
