@@ -3,6 +3,12 @@
 
 .reviews {
   position: relative;
+  padding: 0 0 6rem;
+  background-image: url('../../images/i12-together.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+
   &__header {
     padding: 6rem 10px 7rem;
 
@@ -18,20 +24,6 @@
       border: none;
       background: rgb(75, 75, 75);
     }
-  }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: .5;
-    z-index: -1;
-    background-image: url('../../images/i12-together.jpg');
-    background-size: cover;
-    background-position: 50% 93%;
   }
 
   &__main {
