@@ -557,13 +557,13 @@ a:hover {
   overflow: hidden;
 }
 
-@media (max-width: 1158px) {
+@media (max-width: 1304px) {
   .menu__nav {
     margin-right: 243px;
   }
 }
 
-@media (max-width: 852px) {
+@media (max-width: 930px) {
   .menu__nav {
     height: 0;
     margin-right: 0;
@@ -580,7 +580,7 @@ a:hover {
   margin: 0;
 }
 
-@media (max-width: 852px) {
+@media (max-width: 930px) {
   .menu__nav-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -638,7 +638,7 @@ a:hover {
   color: #fff;
 }
 
-@media (max-width: 852px) {
+@media (max-width: 930px) {
   .menu__elem {
     border-bottom: 1px solid #fff;
   }
@@ -676,7 +676,7 @@ a:hover {
   align-items: center;
 }
 
-@media (max-width: 852px) {
+@media (max-width: 930px) {
   .menu__phone {
     left: 15px;
     right: auto;
@@ -738,7 +738,7 @@ a:hover {
   transition: .4s;
 }
 
-@media (max-width: 852px) {
+@media (max-width: 930px) {
   .menu__mobile-btn {
     display: -webkit-box;
     display: -webkit-flex;
@@ -804,10 +804,10 @@ a:hover {
 }
 
 .menu__mobile-checkbox:checked ~ .menu__nav {
-  height: 226px;
+  height: 286px;
 }
 
-@media (min-width: 853px) {
+@media (min-width: 931px) {
   .menu__mobile-checkbox:checked ~ .menu__nav {
     height: auto;
   }
