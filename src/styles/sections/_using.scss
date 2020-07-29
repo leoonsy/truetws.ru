@@ -1,5 +1,6 @@
 // Использование i12TWS
 @import "../variables";
+@import "../../../node_modules/bootstrap/scss/variables";
 
 .timeline {
   background: #fafafa;
@@ -7,6 +8,32 @@
   &__header {
     &::after {
       border: 5px solid #fafafa;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 478px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      h3 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+      }
     }
   }
 
@@ -24,6 +51,18 @@
       content: "";
       background-color: #e0e0e0;
       z-index: 1;
+
+      @media (max-width: 800px) {
+        left: 170px;
+      }
+
+      @media (max-width: 650px) {
+        left: 120px;
+      }
+
+      @media (max-width: 468px) {
+        display: none;
+      }
     }
   }
 
@@ -32,12 +71,52 @@
     min-height: 280px;
     display: flex;
     z-index: 10;
+
+    @media (max-width: 800px) {
+      justify-content: flex-end;
+
+      .timeline__item-content {
+        padding: 0 7% 0 0;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .timeline__item-content {
+        padding: 0 15px 0 0 !important;
+      }
+    }
+
+    @media (max-width: 468px) {
+      margin: 0 0 40px 0;
+    }
   }
 
   &__item-content {
     flex: 0 1 35%;
     padding: 0 0 0 7%;
     text-align: right;
+
+    @media (max-width: map-get($grid-breakpoints, 'lg')) {
+      padding-left: 0;
+      flex: 0 1 34%;
+    }
+
+    @media (max-width: 800px) {
+      flex: 0 1 50%;
+    }
+
+    @media (max-width: 650px) {
+      flex: 0 1 50%;
+    }
+
+    @media (max-width: 518px) {
+      flex: 0 1 40%;
+    }
+    @media (max-width: 468px) {
+      flex: 0 1 100%;
+      text-align: center !important;
+    }
   }
 
   &__item--inverted {
@@ -62,12 +141,35 @@
       border: 7px solid #e9ecef;
       border-radius: 100%;
     }
+
+    @media (max-width: 800px) {
+      left: 170px;
+    }
+
+    @media (max-width: 650px) {
+      left: 120px;
+    }
+
+    @media (max-width: 468px) {
+      position: static;
+      text-align: center;
+      transform: translateX(0);
+      margin: 0 auto 15px;
+    }
   }
 
   &__item-header {
     font-size: 1.7rem;
     font-weight: 600;
     line-height: 1.3;
+
+    @media (max-width: 518px) {
+      font-size: 1.4rem;
+    }
+
+    @media (max-width: 468px) {
+      font-size: 1.7rem;
+    }
   }
 
   &__item-text {

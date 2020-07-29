@@ -1,5 +1,6 @@
 // Шапка
 @import "../variables";
+@import "../../../node_modules/bootstrap/scss/variables";
 
 .header {
   background: #fafafa;
@@ -7,9 +8,17 @@
   &__wrapper {
     background: url("../../images/header.jpg") 50% 65% no-repeat;
     clip-path: polygon(50% 0%, 100% 0, 100% 91%, 50% 100%, 0 91%, 0% 60%, 0 0);
-    height: 980px;
     background-size: cover;
     position: relative;
+    padding: 0 0 120px 0;
+
+    @media (max-width: 1292px) {
+      background-position: 0% 65%;
+    }
+
+    @media (max-width: 742px) {
+      background-position: 10% 65%;
+    }
   }
 
   &__black-i12 {
@@ -22,6 +31,14 @@
     &:hover {
       transform: translateY(-10px);
     }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      right: 15px;
+    }
+
+    @media (max-width: 610px) {
+      display: none;
+    }
   }
 
   &__top {
@@ -32,18 +49,58 @@
     text-align: center;
     font-size: 3.3rem !important;
     font-weight: 700;
+
+    @media (max-width: 730px) {
+      font-size: 3.1rem !important;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 3rem !important;
+    }
+
+    @media (max-width: 310px) {
+      font-size: 2.6rem !important;
+    }
   }
 
   &__top-i12desc {
     text-align: center;
     font-size: 2.5rem !important;
     font-weight: 600;
+
+    @media (max-width: 730px) {
+      font-size: 2.4rem !important;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 2.3rem !important;
+    }
+
+    @media (max-width: 340px) {
+      font-size: 2rem !important;
+    }
   }
 
   &__top-i12desc2 {
     font-size: 1.9em !important;
     margin-top: 40px;
     font-weight: 600;
+
+    @media (max-width: 730px) {
+      font-size: 1.8rem !important;
+    }
+
+    @media (max-width: 438px) {
+      text-align: center;
+    }
+
+    @media (max-width: 400px) {
+      font-size: 1.7rem !important;
+    }
+
+    @media (max-width: 340px) {
+      font-size: 1.4rem !important;
+    }
   }
 
   &__advantages {
@@ -52,6 +109,13 @@
     font-weight: 600;
     margin: 60px 0 0 auto;
     width: 390px;
+    @media (max-width: 430px) {
+      width: auto;
+    }
+
+    @media (max-width: 340px) {
+      font-size: 1.2rem;
+    }
   }
 
   &__advantages-item {
@@ -77,6 +141,25 @@
       border: 1px solid rgba(85, 85, 85, 0.7);
       color: #262626;
     }
+
+    @media (max-width: 370px) {
+      padding: 15px 40px;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 320px) {
+      padding: 10px 30px;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 274px) {
+      padding: 10px 20px;
+    }
+
+    @media (max-width: 258px) {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+    }
   }
 
   &__form {
@@ -86,10 +169,33 @@
     display: inline-block;
     margin: 0 0 10px;
     text-align: center;
+
+    @media (max-width: map-get($grid-breakpoints, 'lg')) {
+      margin-top: 45px;
+    }
+
+    @media (max-width: 438px) {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 320px) {
+      padding: 15px;
+      font-size: 1.1rem;
+    }
   }
 
   &__mobile-hint {
     font-size: 1.3rem;
+
+    @media (max-width: 310px) {
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 266px) {
+      font-size: 1rem;
+    }
   }
 
   &__mobile-number {
@@ -125,6 +231,18 @@
     //&::placeholder {
     //  transition: all 0.3s ease-in-out;
     //}
+
+    @media (max-width: 370px) {
+      width: 200px;
+      background-size: 200px 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $mobile-color 4%) no-repeat -200px 0;
+    }
+
+    @media (max-width: 266px) {
+      width: 180px;
+      background-size: 180px 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $mobile-color 4%) no-repeat -180px 0;
+    }
   }
 
   &__form-end {

@@ -12,4 +12,12 @@ $('.gift__slider').slick({
     dotsClass: "gift__dots",
     prevArrow: '<div class="gift__arrow prev"></div>',
     nextArrow: '<div class="gift__arrow next"></div>',
+    responsive: [
+        {
+            breakpoint: 700,
+            settings: {
+                slidesToShow: 1
+            }
+        }
+    ]
 });

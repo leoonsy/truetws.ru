@@ -1,5 +1,6 @@
 // Характеристики
 @import "../variables";
+@import "../../../node_modules/bootstrap/scss/variables";
 
 .characters {
   background-size: cover;
@@ -9,16 +10,58 @@
   padding: 0 0 4rem;
   position: relative;
 
+  &__header {
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 478px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+
+      h3 {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
   &__i12tws {
     position: absolute;
     top: 23rem;
     left: 50%;
     width: 270px;
     transform: translateX(-50%);
+
+    @media (max-width: 1046px) {
+      width: 200px;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      top: auto;
+      bottom: 170px;
+      width: 160px;
+    }
   }
 
   &__container {
     padding: 0 40px;
+
+    @media (max-width: 1068px) {
+      padding: 0 15px;
+    }
   }
 
   &__header {
@@ -40,6 +83,14 @@
 
   &__item-wrapper {
     flex: 0 1 70%;
+
+    @media (max-width: 1046px) {
+      flex: 0 1 77%;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      flex: 0 1 100%;
+    }
   }
 
   &__item {
@@ -50,20 +101,46 @@
     &.right {
       border-left: none;
       border-right: 1px solid $character-border-color;
+      text-align: right;
+
+      @media (max-width: map-get($grid-breakpoints, 'md')) {
+        text-align: center;
+        border-left: 1px solid $character-border-color;
+        border-top: 1px solid $character-border-color;
+      }
     }
 
     &:first-child {
       border-top: none;
       padding-top: 5px;
+
+      @media (max-width: map-get($grid-breakpoints, 'md')) {
+        border-top: 1px solid $character-border-color;
+        padding-top: 40px;
+      }
     }
 
     &:last-child {
       padding-bottom: 5px;
+
+      @media (max-width: map-get($grid-breakpoints, 'md')) {
+        padding-bottom: 40px;
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      text-align: center;
+      border-right: 1px solid $character-border-color;
+      border-bottom: 1px solid $character-border-color;
     }
   }
 
   &__item-header {
     font-size: 1.7rem;
+
+    @media (max-width: 300px) {
+      font-size: 1.4rem;
+    }
   }
 
   &__item-text {
@@ -91,6 +168,30 @@
     &:hover {
       background: rgb(231, 231, 231);
       color: #262626;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'md')) {
+      margin: 250px 0 0 0;
+    }
+
+    @media (max-width: 388px) {
+      font-size: 1.4rem;
+      padding: 22px 60px;
+    }
+
+    @media (max-width: 324px) {
+      font-size: 1.3rem;
+      padding: 16px 50px;
+    }
+
+    @media (max-width: 288px) {
+      font-size: 1.2rem;
+      padding: 16px 40px;
+    }
+
+    @media (max-width: 260px) {
+      font-size: 1.2rem;
+      padding: 16px 30px;
     }
   }
 }
