@@ -23,16 +23,20 @@ const gulp = require('gulp'),  // подключаем Gulp
 
 /* параметры скрипта */
 let mode = args.mode || 'development';
-let key = args.key || 'root',
+let key = args.key || 'main',
     isDev = mode == 'development',
     isProd = !isDev;
 
+console.log(`Ключ: ${key}`);
+
 let srcFolders = {
-    root: 'src/'
+    main: 'src/',
+    back: 'public_html_src/'
 };
 
 let buildFolders = {
-    root: 'dist/'
+    main: 'dist/',
+    back: 'public_html/'
 }
 
 /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
@@ -43,7 +47,8 @@ let path = {
         scss: srcFolders[key] + '**/[^_]*.+(sass|scss)',
         css: srcFolders[key] + '**/[^_]*.css',
         img: srcFolders[key] + '**/[^_]*.+(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/[^_]*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)'
+        other: srcFolders[key] + '**/[^_]*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     watch: {
         html: srcFolders[key] + '**/*.+(html|php|tpl)',
@@ -51,7 +56,8 @@ let path = {
         css: srcFolders[key] + '**/*.css',
         scss: srcFolders[key] + '**/*.+(sass|scss)',
         img: srcFolders[key] + '**/*.(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)'
+        other: srcFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     }
 };
 
@@ -64,6 +70,7 @@ gulp.task('html:build', () => {
             collapseWhitespace: true, // удаляем все переносы
             removeComments: true // удаляем все комментарии
         })))
+        //нам не нужны html в back
         .pipe(gulp.dest(buildFolders[key])) // выгружаем в dist
 });
 
@@ -142,37 +149,43 @@ gulp.task('img:build', () => {
 
 // сбор остального
 gulp.task('other:build', () => {
-    return gulp.src(path.src.other) // выбор всех html файлов по указанному пути
+    return gulp.src(path.src.other) // выбор всех других файлов по указанному пути
+        .pipe(gulp.dest(buildFolders[key])) // выкладывание готовых файлов
+});
+
+// сбор остального
+gulp.task('dots:build', () => {
+    return gulp.src(path.src.dots) // выбор всех точечных файлов по указанному пути
         .pipe(gulp.dest(buildFolders[key])) // выкладывание готовых файлов
 });
 
 // удаление js
 gulp.task('js:clean', () => {
-    return gulp.src(path.build.js, {read: false})
+    return gulp.src(buildFolders[key] + path.src.js, {read: false})
         .pipe(rimraf());
 });
 
 // удаление img
 gulp.task('img:clean', () => {
-    return gulp.src(path.build.img, {read: false})
+    return gulp.src(buildFolders[key] + path.src.img, {read: false})
         .pipe(rimraf());
 });
 
 // удаление html
 gulp.task('html:clean', () => {
-    return gulp.src(path.build.html, {read: false})
+    return gulp.src(buildFolders[key] + path.src.html, {read: false})
         .pipe(rimraf());
 });
 
 // удаление css
 gulp.task('css:clean', () => {
-    return gulp.src(path.build.css, {read: false})
+    return gulp.src(buildFolders[key] + path.src.css, {read: false})
         .pipe(rimraf());
 });
 
 // удаление scss
 gulp.task('scss:clean', () => {
-    return gulp.src(path.build.scss, {read: false})
+    return gulp.src(buildFolders[key] + path.src.scss, {read: false})
         .pipe(rimraf());
 });
 
@@ -188,7 +201,13 @@ gulp.task('style:clean',
 
 // удаление other
 gulp.task('other:clean', () => {
-    return gulp.src(path.build.other, {read: false})
+    return gulp.src(buildFolders[key] + path.src.other, {read: false })
+        .pipe(rimraf());
+});
+
+// удаление dots
+gulp.task('dots:clean', () => {
+    return gulp.src(buildFolders[key] + path.src.dots, {read: false })
         .pipe(rimraf());
 });
 
@@ -210,10 +229,11 @@ gulp.task('style:build',
 gulp.task('build',
     gulp.parallel(
         'style:build',
-        'js:build',
+        // 'js:build',
         'html:build',
         'img:build',
-        'other:build'
+        'other:build',
+        'dots:build'
     )
 );
 
@@ -235,10 +255,11 @@ gulp.task('serve', () => {
 gulp.task('watch', () => {
     gulp.watch(path.watch.css, gulp.series('css:build'));
     gulp.watch(path.watch.scss, gulp.series('scss:build'));
-    gulp.watch(path.watch.js, gulp.series('js:build'));
+    // gulp.watch(path.watch.js, gulp.series('js:build'));
     gulp.watch(path.watch.html, gulp.series('html:build'));
     gulp.watch(path.watch.img, gulp.series('img:build'));
     gulp.watch(path.watch.other, gulp.series('other:build'));
+    gulp.watch(path.watch.dots, gulp.series('dots:build'));
 });
 
 // очистка кэша

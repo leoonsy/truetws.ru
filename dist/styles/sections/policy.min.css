@@ -344,6 +344,8 @@ body {
 .wrapper {
   overflow: hidden;
   min-width: 240px;
+  padding: 0;
+  margin: 0;
 }
 
 a,
@@ -439,10 +441,6 @@ a:hover {
 
 .policy-text ol {
   margin-left: 15px;
-}
-
-.policy-text p {
-  margin: 0;
 }
 
 /*# sourceMappingURL=policy.min.css.map */

@@ -1,0 +1,88 @@
+// Почему мы
+@import "../variables";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+.why-we {
+  background: #fafafa;
+
+  &__item {
+    border-bottom: 1px solid #e2e2e2;
+    padding: 4rem 0 2rem 0;
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__header {
+    &::after {
+      border: 5px solid #fafafa;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 478px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__item-img {
+    width: 150px;
+
+    &.suppliers {
+      width: 200px;
+    }
+
+    &.truck {
+      width: 250px;
+    }
+
+    &.communication {
+      width: 220px;
+    }
+  }
+
+
+  &__item-header {
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 10px;
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      text-align: center;
+      width: 100%;
+      margin-top: 35px;
+    }
+  }
+
+  &__item-text {
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 0;
+    }
+  }
+}

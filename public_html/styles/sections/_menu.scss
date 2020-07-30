@@ -1,0 +1,247 @@
+// Меню
+@import "../variables";
+
+$hamburgerMaxWidth: 930px;
+$menuHeight: 286px;
+
+.menu {
+  min-width: 240px;
+  transition: all .5s ease;
+  padding: 10px 0 5px 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.85);
+  z-index: 1000;
+  min-height: 72px;
+
+  @media (max-width: 852px) {
+    padding-bottom: 0;
+  }
+
+  &.out {
+    transform: translateY(-100%);
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    transition: all ease 1s;
+    overflow: hidden;
+    @media (max-width: 1304px) {
+      margin-right: 243px;
+    }
+
+    @media (max-width: $hamburgerMaxWidth) {
+      height: 0;
+      margin-right: 0;
+      margin-top: 70px;
+    }
+  }
+
+  &__nav-wrapper {
+    list-style: none;
+    display: flex;
+    margin: 0;
+
+    @media (max-width: $hamburgerMaxWidth) {
+      flex-flow: column nowrap;
+      text-align: left;
+      width: 100%;
+      background: #444444;
+    }
+  }
+
+  &__elem {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: "";
+      width: 1px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.44);
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 7px;
+    }
+
+    padding: 0 10px;
+
+    a {
+      color: rgba(255, 255, 255, 0.66);
+      display: block;
+      padding: 10px 10px 20px;
+      transition: background-position-x 1s ease, color 1s ease;
+
+      &:hover {
+        background: url("data:image/svg+xml,%3Csvg width='500' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg%3E%3Ctitle%3Ebackground%3C/title%3E%3Crect fill='none' id='canvas_background' height='52' width='502' y='-1' x='-1'/%3E%3C/g%3E%3Cg%3E%3Ctitle%3ELayer 1%3C/title%3E%3Cpath id='svg_1' d='m0,47.585c0,0 97.5,0 130,0c13.75,0 28.74,-38.778 46.168,-19.416c16.501,18.331 67.435,19.416 83.832,19.416c31.821,0 130,0 130,0' stroke-miterlimit='10' stroke-width='1.5' stroke='%23ffffff' fill='none'/%3E%3Cpath id='svg_3' d='m372.058572,30.483178' opacity='0.5' stroke-width='1.5' fill='%232179d6'/%3E%3Cline stroke-linecap='undefined' stroke-linejoin='undefined' id='svg_6' y2='48.130199' x2='500.629723' y1='47.710032' x1='389.705593' stroke-width='1.5' stroke='%23ffffff' fill='none'/%3E%3C/g%3E%3C/svg%3E") 80% 100% repeat-x;
+        animation: line 1s;
+        background-size: 300% 60%;
+        color: #fff;
+      }
+    }
+
+    &.active {
+      a {
+        color: #fff;
+      }
+    }
+
+    @media (max-width: $hamburgerMaxWidth) {
+      border-bottom: 1px solid #fff;
+      &:hover {
+        background: #525252;
+      }
+
+      &:not(:last-child)::after {
+        display: none;
+      }
+
+      & a {
+        padding: 15px;
+      }
+
+      &:hover a {
+        background: none;
+      }
+    }
+  }
+
+  &__phone {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 15px;
+    color: #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: $hamburgerMaxWidth) {
+      left: 15px;
+      right: auto;
+      bottom: auto;
+      top: 15px;
+    }
+
+    @media (max-width: 294px) {
+      top: 25px;
+    }
+
+  }
+
+  &__phone-img {
+    width: 40px;
+    margin: 0 17px 0 0;
+
+    @media (max-width: 350px) {
+      display: none;
+    }
+  }
+
+  &__phone-number {
+    color: #ffffff !important;
+    padding: 0;
+
+    &:hover {
+      color: #d7f3ff !important;
+    }
+  }
+
+  &__phone-time {
+    @media (max-width: 294px) {
+      display: none;
+    }
+  }
+
+  &__mobile-btn {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 23px;
+    width: 35px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: .4s;
+
+    @media (max-width: $hamburgerMaxWidth) {
+      display: flex;
+      bottom: auto;
+    }
+  }
+
+  &__mobile-icon {
+    display: block;
+    position: relative;
+    background: #ececec;
+    width: 90%;
+    height: 4px;
+    transition: .4s;
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: #ececec;
+      width: 110%;
+      height: 4px;
+      transition: .4s;
+    }
+
+    &::after {
+      top: 8px;
+    }
+
+    &::before {
+      top: -8px;
+    }
+  }
+
+  &__mobile-checkbox {
+    display: none;
+
+    &:checked ~ {
+      .menu {
+        &__mobile-btn {
+          .menu__mobile-icon {
+            background: transparent;
+
+            &::before,
+            &::after {
+              top: 0;
+            }
+
+            &::after {
+              transform: rotate(-45deg);
+            }
+
+            &::before {
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+
+      .menu__nav {
+        height: $menuHeight;
+        @media (min-width: $hamburgerMaxWidth + 1px)  {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+
+@keyframes line {
+  0% {
+    background-position-x: -17%;
+  }
+}
