@@ -7,17 +7,17 @@
     <meta name="description" content="Купить беспроводные наушники i12 TWS по низкой цене!"/>
     <meta name="keywords" content="i12, tws, наушники, беспроводные, купить"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/sections/main.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
+          rel="stylesheet">
 </head>
-<link rel="stylesheet" href="styles/bootstrap.min.css"/>
-<link rel="stylesheet" href="styles/sections/main.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet">
 <body>
 <div class="wrapper">
     <div class="menu animate__animated animate__fadeIn">
         <input type="checkbox" id="checkbox" class="menu__mobile-checkbox">
         <label for="checkbox" class="menu__mobile-btn">
-            <div class="menu__mobile-icon"></div>
+            <span class="menu__mobile-icon"></span>
         </label>
         <nav class="menu__nav animate__animated animate__fadeIn">
             <ul class="menu__nav-wrapper">
@@ -39,7 +39,7 @@
             </ul>
         </nav>
         <div class="menu__phone">
-            <img src="images/tel.svg" alt="" class="menu__phone-img">
+            <img src="images/tel.svg" alt="Телефон" class="menu__phone-img">
             <div class="menu__phone-text">
                 <a class="menu__phone-number" href="tel:+79871989378">+7(987)198-93-78</a>
                 <div class="menu__phone-time">Работаем круглосуточно!</div>
@@ -66,12 +66,13 @@
                         <input class="header__mobile-number" id="header__mobile-number" type="text"
                                placeholder="Номер телефона"
                                required/>
-                        <input name="hdn" class="hdn" placeholder="email" />
+                        <input name="hdn" class="hdn" placeholder="email"/>
                         <button class="header__buy">Оставить заявку</button>
                         <div class="header__form-end">и получить скидку в размере <span>50%</span></div>
                     </div>
                 </div>
-                <img class="header__black-i12 wow animate__fadeInUp" data-wow-delay="1s" src="images/black-i12.png"/>
+                <img class="header__black-i12 wow animate__fadeInUp" data-wow-delay="1s" src="images/black-i12.png"
+                     alt="Черный i12 TWS"/>
             </div>
         </div>
     </header>
@@ -83,7 +84,8 @@
                 </div>
                 <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
                     <div class="col-sm-6 text-sm-left text-center order-sm-2">
-                        <img class="why-we__item-img suppliers" src="images/why-we/suppliers.png"/>
+                        <img class="why-we__item-img suppliers" src="images/why-we/suppliers.png"
+                             alt="Проверенные поставщики"/>
                     </div>
                     <div class="col-sm-6 order-1 why-we__item-content">
                         <h3 class="why-we__item-header">Только проверенные поставщики.</h3>
@@ -92,7 +94,8 @@
                 </div>
                 <div class="why-we__item row wow animate__fadeInRight" data-wow-delay=".7s">
                     <div class="col-sm-6 text-sm-right text-center">
-                        <img class="why-we__item-img guarantee" src="images/why-we/guarantee.png"/>
+                        <img class="why-we__item-img guarantee" src="images/why-we/guarantee.png"
+                             alt="Гарантия качества"/>
                     </div>
                     <div class="col-sm-6 why-we__item-content">
                         <h3 class="why-we__item-header">100% контроль качества.</h3>
@@ -102,7 +105,8 @@
                 </div>
                 <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
                     <div class="col-sm-6 text-sm-left text-center order-sm-2">
-                        <img class="why-we__item-img communication" src="images/why-we/communication.png"/>
+                        <img class="why-we__item-img communication" src="images/why-we/communication.png"
+                             alt="Сотрудник на связи"/>
                     </div>
                     <div class="col-sm-6 order-1 why-we__item-content">
                         <h3 class="why-we__item-header">Мы всегда на связи.</h3>
@@ -111,7 +115,8 @@
                 </div>
                 <div class="why-we__item row wow animate__fadeInRight" data-wow-delay=".7s">
                     <div class="col-sm-6 text-sm-right text-center">
-                        <img class="why-we__item-img truck" src="images/why-we/truck.png"/>
+                        <img class="why-we__item-img truck" src="images/why-we/truck.png"
+                             alt="Машина с доставкой товара"/>
                     </div>
                     <div class="col-sm-6 why-we__item-content">
                         <h3 class="why-we__item-header">Безопасная оплата и быстрая доставка.</h3>
@@ -123,7 +128,7 @@
         </section>
         <section id="characters" class="characters">
             <div class="container-fluid characters__container">
-                <img class="characters__i12tws" src="images/char-i12tws.png"/>
+                <img class="characters__i12tws" src="images/char-i12tws.png" alt="Черные i12 TWS"/>
                 <div class="section-header characters__header wow animate__fadeInUp" data-wow-delay=".3s">
                     <h2>Абсолютное превосходство</h2>
                     <h3>Широкий диапазон функций i12TWS</h3>
@@ -177,7 +182,7 @@
                     <div class="timeline__item">
                         <div class="timeline__item-content">
                             <div class="timeline__item-img">
-                                <img src="images/timeline/walk.jpg"/>
+                                <img src="images/timeline/walk.jpg" alt="Мужчина с i12 TWS"/>
                             </div>
                             <div class="timeline__item-header">Для прогулок</div>
                             <div class="timeline__item-text">Гулять не только полезно, но и увлекательно.</div>
@@ -186,7 +191,7 @@
                     <div class="timeline__item--inverted timeline__item">
                         <div class="timeline__item-content">
                             <div class="timeline__item-img">
-                                <img src="images/timeline/sport.jpeg"/>
+                                <img src="images/timeline/sport.jpeg" alt="Девушка занимается спортом с наушниками"/>
                             </div>
                             <div class="timeline__item-header">Для спорта</div>
                             <div class="timeline__item-text">Лучшая мотивация для тренировок!</div>
@@ -195,7 +200,7 @@
                     <div class="timeline__item">
                         <div class="timeline__item-content">
                             <div class="timeline__item-img">
-                                <img src="images/timeline/together.jpg"/>
+                                <img src="images/timeline/together.jpg" alt="Мужчина и женщина слушают музыку вместе"/>
                             </div>
                             <div class="timeline__item-header">Для прослушивания музыки вдвоем</div>
                             <div class="timeline__item-text">Проводите время вдвоём с любимой музыкой.</div>
@@ -204,7 +209,7 @@
                     <div class="timeline__item timeline__item--inverted">
                         <div class="timeline__item-content">
                             <div class="timeline__item-img">
-                                <img src="images/timeline/love-work.jpg"/>
+                                <img src="images/timeline/love-work.jpg" alt="Фотограф"/>
                             </div>
                             <div class="timeline__item-header">Для занятия любимым делом</div>
                             <div class="timeline__item-text">Занимайтесь любимым делом под лучшие треки!</div>
@@ -216,20 +221,21 @@
         <section class="gift">
             <div class="container" data-change-container-size="992">
                 <div class="section-header gift__header wow animate__fadeInUp" data-wow-delay=".3s">
-                    <h2>Благодаря нашему <span style="color: #0786d5;">подарку</span> Вы забудете о проводах</span></h2>
+                    <h2>Благодаря нашему <span style="color: #0786d5;">подарку</span> Вы забудете о проводах</h2>
                 </div>
                 <div class="gift__slider">
                     <div class="gift__slider-item">
-                        <img class="gift__slider-img" src="images/gift/0.jpg"/>
+                        <img class="gift__slider-img" src="images/gift/0.jpg" alt="Беспроводная зарядка наушников"/>
                     </div>
                     <div class="gift__slider-item">
-                        <img class="gift__slider-img" src="images/gift/1.jpg"/>
+                        <img class="gift__slider-img" src="images/gift/1.jpg" alt="Беспроводная зарядка телефона"/>
                     </div>
                     <div class="gift__slider-item">
-                        <img class="gift__slider-img" src="images/gift/2.jpg"/>
+                        <img class="gift__slider-img" src="images/gift/2.jpg"
+                             alt="Как использовать Fantasy wireless charger"/>
                     </div>
                     <div class="gift__slider-item">
-                        <img class="gift__slider-img" src="images/gift/3.jpg"/>
+                        <img class="gift__slider-img" src="images/gift/3.jpg" alt="Fantasy wireless charger"/>
                     </div>
                 </div>
                 <div class="gift__text">
@@ -239,7 +245,7 @@
                 </div>
             </div>
         </section>
-        <section id="buy">
+        <div id="buy">
             <section class="buy-1">
                 <div class="container" data-change-container-size="992">
                     <div class="section-header buy-1__header wow animate__fadeInUp" data-wow-delay=".3s">
@@ -262,7 +268,7 @@
                                 <div class="price__number-new">1430₽</div>
                             </div>
                         </div>
-                        <img class="buy-1__i12-white" src="images/buy/i12-white.png"/>
+                        <img class="buy-1__i12-white" src="images/buy/i12-white.png" alt="Белые i12TWS"/>
                     </div>
                 </div>
                 <svg class="buy-1__wave" viewBox="0 0 1440 320">
@@ -274,13 +280,13 @@
                 <div class="container" data-change-container-size="992">
                     <div class="row">
                         <div class="buy-2__i12-black col-md-5 order-md-1 order-2">
-                            <img src="images/buy/i12-black.png">
+                            <img src="images/buy/i12-black.png" alt="Черные i12 TWS">
                         </div>
                         <div class="col-md-7 d-flex justify-content-center order-md-2 order-1">
                             <div class="buy-2__main">
-                                <div class="buy-2__gift">
+                                <h2 class="buy-2__gift">
                                     + Беспроводная зарядка в <span class="text-blue">подарок</span>
-                                </div>
+                                </h2>
                                 <div class="buy-form buy-2__form">
                                     <div class="buy-form__text">
                                         Оформите заявку со <span class="text-blue">скидкой и подарком</span>
@@ -288,11 +294,12 @@
                                     <form class="buy-form__form" name="buy" action="/">
                                         <input class="buy-form__name" placeholder="Имя" type="text" name="name"/>
                                         <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone"/>
-                                        <input name="hdn" class="hdn" placeholder="email" />
+                                        <input name="hdn" class="hdn" placeholder="email"/>
                                         <input class="buy-form__submit" type="submit" value="Заказать"/>
                                     </form>
                                     <div class="buy-form__agreement">
-                                        <span>*</span> Ваши данные не будут использованы для спама и передачи третьим лицам.
+                                        <span>*</span> Ваши данные не будут использованы для спама и передачи третьим
+                                        лицам.
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +307,7 @@
                     </div>
                 </div>
             </section>
-        </section>
+        </div>
 
         <section id="how-works" class="how-works">
             <div class="container-fluid">
@@ -347,16 +354,16 @@
                 <div class="reviews__main">
                     <div class="row">
                         <div class="col-lg col-sm-6">
-                            <img class="reviews__img" src="images/reviews/1.jpg"/>
+                            <img class="reviews__img" src="images/reviews/1.jpg" alt="Первый отзыв"/>
                         </div>
                         <div class="col-lg col-sm-6">
-                            <img class="reviews__img" src="images/reviews/2.jpg"/>
+                            <img class="reviews__img" src="images/reviews/2.jpg" alt="Второй отзыв"/>
                         </div>
                         <div class="col-lg col-sm-6">
-                            <img class="reviews__img" src="images/reviews/3.jpg"/>
+                            <img class="reviews__img" src="images/reviews/3.jpg" alt="Третий отзыв"/>
                         </div>
                         <div class="col-lg col-sm-6">
-                            <img class="reviews__img" src="images/reviews/4.jpg"/>
+                            <img class="reviews__img" src="images/reviews/4.jpg" alt="Четвертый отзыв"/>
                         </div>
                     </div>
 
@@ -380,7 +387,7 @@
                                 <h3 class="end-form__header">Заполните данные для заказа</h3>
                                 <input type="text" placeholder="Имя"/>
                                 <input class="end-form__phone" type="text" placeholder="Телефон"/>
-                                <input name="hdn" class="hdn" placeholder="email" />
+                                <input name="hdn" class="hdn" placeholder="email"/>
                                 <input type="submit" value="Заказать со скидкой"/>
                                 <p class="end-form__agreement"><span>*</span> Ваши данные не будут использованы для
                                     спама и передачи третьим лицам.</p>
@@ -392,11 +399,13 @@
         </section>
         <section class="policy">
             <div class="container-fluid">
-                <a class="policy__link" href="policy.html">Политика конфиденциальности</a>
+                <h3>
+                    <a class="policy__link" href="policy.html">Политика конфиденциальности</a>
+                </h3>
             </div>
         </section>
     </main>
 </div>
-</body>
 <script src="scripts/main.min.js"></script>
+</body>
 </html>
