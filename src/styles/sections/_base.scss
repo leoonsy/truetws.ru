@@ -4,6 +4,7 @@
 html, body {
   overflow-x: hidden;
   min-width: 240px;
+  font-family: $font-family-sans-serif;
 }
 
 * {
@@ -78,4 +79,8 @@ a:hover {
 
 .text-blue {
   color: #0c82d0;
+}
+
+.hdn {
+  display: none !important;
 }

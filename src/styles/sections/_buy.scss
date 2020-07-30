@@ -61,6 +61,11 @@
     bottom: 170px;
     right: 200px;
     width: 270px;
+    transition: all .4s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
 
     @media (max-width: 1258px) {
       right: 100px;
@@ -286,6 +291,12 @@
 
       @media (max-width: map-get($grid-breakpoints, 'md')) {
         margin-top: 20px;
+      }
+
+      transition: all .4s ease;
+
+      &:hover {
+        transform: translateY(-10px);
       }
     }
 

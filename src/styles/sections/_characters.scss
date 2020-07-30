@@ -44,6 +44,12 @@
     left: 50%;
     width: 270px;
     transform: translateX(-50%);
+    transition: all .4s ease;
+    z-index: 1000;
+
+    &:hover {
+      transform: translate(-50%, -10px);
+    }
 
     @media (max-width: 1046px) {
       width: 200px;

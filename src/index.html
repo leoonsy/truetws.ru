@@ -21,20 +21,20 @@
         </label>
         <nav class="menu__nav animate__animated animate__fadeIn">
             <ul class="menu__nav-wrapper">
-                <li class="menu__elem active">
-                    <a href="#">Почему мы</a>
+                <li class="menu__elem">
+                    <a href="#why-we">Почему мы</a>
                 </li>
                 <li class="menu__elem">
-                    <a href="#">Характеристики</a>
+                    <a href="#characters">Характеристики</a>
                 </li>
                 <li class="menu__elem">
-                    <a href="#">Заказать</a>
+                    <a href="#buy">Заказать</a>
                 </li>
                 <li class="menu__elem">
-                    <a href="#">Доставка</a>
+                    <a href="#how-works">Доставка</a>
                 </li>
                 <li class="menu__elem">
-                    <a href="#">Отзывы</a>
+                    <a href="#reviews">Отзывы</a>
                 </li>
             </ul>
         </nav>
@@ -66,6 +66,7 @@
                         <input class="header__mobile-number" id="header__mobile-number" type="text"
                                placeholder="Номер телефона"
                                required/>
+                        <input name="hdn" class="hdn" placeholder="email" />
                         <button class="header__buy">Оставить заявку</button>
                         <div class="header__form-end">и получить скидку в размере <span>50%</span></div>
                     </div>
@@ -75,7 +76,7 @@
         </div>
     </header>
     <main>
-        <section class="why-we">
+        <section id="why-we" class="why-we">
             <div class="container" data-change-container-size="768">
                 <div class="section-header why-we__header wow animate__fadeInUp" data-wow-delay=".3s">
                     <h2>Премиальное качество и надежность в ваших руках</h2>
@@ -120,7 +121,7 @@
                 </div>
             </div>
         </section>
-        <section class="characters">
+        <section id="characters" class="characters">
             <div class="container-fluid characters__container">
                 <img class="characters__i12tws" src="images/char-i12tws.png"/>
                 <div class="section-header characters__header wow animate__fadeInUp" data-wow-delay=".3s">
@@ -238,157 +239,162 @@
                 </div>
             </div>
         </section>
-        <section class="buy-1">
-            <div class="container" data-change-container-size="992">
-                <div class="section-header buy-1__header wow animate__fadeInUp" data-wow-delay=".3s">
-                    <h2>Не нужно переплачивать за любимые функции</h2>
-                </div>
-                <div class="buy-1__discount">
-                    <div class="buy-1__discount-header">
-                        Сделайте заказ сейчас и получите скидку в <span class="buy-1__discount-percent">50%</span>
+        <section id="buy">
+            <section class="buy-1">
+                <div class="container" data-change-container-size="992">
+                    <div class="section-header buy-1__header wow animate__fadeInUp" data-wow-delay=".3s">
+                        <h2>Не нужно переплачивать за любимые функции</h2>
                     </div>
-                    <div class="buy-1__discount-end">
-                        Акция действует до <span class="buy-1__discount-time">22.07.2020 00:00:00</span> по МСК.
-                    </div>
-                    <div class="price buy-1__discount-price">
-                        <div class="price__text">
-                            <div class="price__text-old">Старая цена</div>
-                            <div class="price__text-new">Новая цена</div>
+                    <div class="buy-1__discount">
+                        <div class="buy-1__discount-header">
+                            Сделайте заказ сейчас и получите скидку в <span class="buy-1__discount-percent">50%</span>
                         </div>
-                        <div class="price__number">
-                            <div class="price__number-old">2170₽</div>
-                            <div class="price__number-new">1430₽</div>
+                        <div class="buy-1__discount-end">
+                            Акция действует до <span class="buy-1__discount-time">22.07.2020 00:00:00</span> по МСК.
                         </div>
-                    </div>
-                    <img class="buy-1__i12-white" src="images/buy/i12-white.png"/>
-                </div>
-            </div>
-            <svg class="buy-1__wave" viewBox="0 0 1440 320">
-                <path fill="#fff" fill-opacity="1"
-                      d="M0,32L48,69.3C96,107,192,181,288,213.3C384,245,480,235,576,213.3C672,192,768,160,864,176C960,192,1056,256,1152,277.3C1248,299,1344,277,1392,266.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-        </section>
-        <section class="buy-2">
-            <div class="container" data-change-container-size="992">
-                <div class="row">
-                    <div class="buy-2__i12-black col-md-5 order-md-1 order-2">
-                        <img src="images/buy/i12-black.png">
-                    </div>
-                    <div class="col-md-7 d-flex justify-content-center order-md-2 order-1">
-                        <div class="buy-2__main">
-                            <div class="buy-2__gift">
-                                + Беспроводная зарядка в <span class="text-blue">подарок</span>
+                        <div class="price buy-1__discount-price">
+                            <div class="price__text">
+                                <div class="price__text-old">Старая цена</div>
+                                <div class="price__text-new">Новая цена</div>
                             </div>
-                            <div class="buy-form buy-2__form">
-                                <div class="buy-form__text">
-                                    Оформите заявку со <span class="text-blue">скидкой и подарком</span>
-                                </div>
-                                <form class="buy-form__form" name="buy" action="/">
-                                    <input class="buy-form__name" placeholder="Имя" type="text" name="name"/>
-                                    <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone"/>
-                                    <input class="buy-form__submit" type="submit" value="Заказать"/>
-                                </form>
-                                <div class="buy-form__agreement">
-                                    <span>*</span> Ваши данные не будут использованы для спама и передачи третьим лицам.
-                                </div>
+                            <div class="price__number">
+                                <div class="price__number-old">2170₽</div>
+                                <div class="price__number-new">1430₽</div>
                             </div>
                         </div>
+                        <img class="buy-1__i12-white" src="images/buy/i12-white.png"/>
                     </div>
                 </div>
-            </div>
+                <svg class="buy-1__wave" viewBox="0 0 1440 320">
+                    <path fill="#fff" fill-opacity="1"
+                          d="M0,32L48,69.3C96,107,192,181,288,213.3C384,245,480,235,576,213.3C672,192,768,160,864,176C960,192,1056,256,1152,277.3C1248,299,1344,277,1392,266.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </section>
+            <section class="buy-2">
+                <div class="container" data-change-container-size="992">
+                    <div class="row">
+                        <div class="buy-2__i12-black col-md-5 order-md-1 order-2">
+                            <img src="images/buy/i12-black.png">
+                        </div>
+                        <div class="col-md-7 d-flex justify-content-center order-md-2 order-1">
+                            <div class="buy-2__main">
+                                <div class="buy-2__gift">
+                                    + Беспроводная зарядка в <span class="text-blue">подарок</span>
+                                </div>
+                                <div class="buy-form buy-2__form">
+                                    <div class="buy-form__text">
+                                        Оформите заявку со <span class="text-blue">скидкой и подарком</span>
+                                    </div>
+                                    <form class="buy-form__form" name="buy" action="/">
+                                        <input class="buy-form__name" placeholder="Имя" type="text" name="name"/>
+                                        <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone"/>
+                                        <input name="hdn" class="hdn" placeholder="email" />
+                                        <input class="buy-form__submit" type="submit" value="Заказать"/>
+                                    </form>
+                                    <div class="buy-form__agreement">
+                                        <span>*</span> Ваши данные не будут использованы для спама и передачи третьим лицам.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
-        <!--        <section class="how-works">-->
-        <!--            <div class="container-fluid">-->
-        <!--                <div class="section-header how-works__header wow animate__fadeInUp" data-wow-delay=".3s">-->
-        <!--                    <h2>Как получить наушники</h2>-->
-        <!--                </div>-->
-        <!--                <div class="how-works__main">-->
-        <!--                    <div class="how-works__sequence">-->
-        <!--                        <div class="how-works__basket">Вы выбираете понравившиеся наушники</div>-->
-        <!--                        <div class="how-works__form">Оставляете заявку через форму заявки на сайте</div>-->
-        <!--                        <div class="how-works__call">Мы перезваниваем Вам для уточнения заказа</div>-->
-        <!--                        <div class="how-works__send">Отправляем Ваш заказ в пункт назначения</div>-->
-        <!--                        <div class="how-works__check">Вы проверяете и оплачиваете товар на почте</div>-->
-        <!--                    </div>-->
-        <!--                    <div class="how-works__sequence-mobile row">-->
-        <!--                        <div class="how-works__basket-mobile col-sm">-->
-        <!--                            <img src="/images/how-works/1.png" alt="Наушники i12 TWS"/>-->
-        <!--                            <p>Вы выбираете наушники</p>-->
-        <!--                        </div>-->
-        <!--                        <div class="how-works__form-mobile col-sm">-->
-        <!--                            <img src="images/how-works/2.png" alt="Сообщение"/>-->
-        <!--                            <p>Оставляете заявку через форму заявки на сайте</p>-->
-        <!--                        </div>-->
-        <!--                        <div class="how-works__call-mobile col-sm">-->
-        <!--                            <img src="images/how-works/3.png" alt="Телефон"/>-->
-        <!--                            <p>Мы перезваниваем Вам для подтверждения заказа</p>-->
-        <!--                        </div>-->
-        <!--                        <div class="how-works__send-mobile col-sm">-->
-        <!--                            <img src="images/how-works/4.png" alt="Самолет"/>-->
-        <!--                            <p>Отправляем Ваш заказ в пункт назначения</p>-->
-        <!--                        </div>-->
-        <!--                        <div class="how-works__check-mobile col-sm">-->
-        <!--                            <img src="images/how-works/5.png" alt="Кошелек"/>-->
-        <!--                            <p>Вы проверяете и оплачиваете товар на почте</p></div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </section>-->
-        <!--        <section class="reviews">-->
-        <!--            <div class="container-fluid">-->
-        <!--                <div class="section-header reviews__header wow animate__fadeInUp" data-wow-delay=".3s">-->
-        <!--                    <h2>Отзывы наших клиентов</h2>-->
-        <!--                </div>-->
-        <!--                <div class="reviews__main">-->
-        <!--                    <div class="row">-->
-        <!--                        <div class="col">-->
-        <!--                            <img class="reviews__img" src="images/reviews/1.jpg"/>-->
-        <!--                        </div>-->
-        <!--                        <div class="col">-->
-        <!--                            <img class="reviews__img" src="images/reviews/2.jpg"/>-->
-        <!--                        </div>-->
-        <!--                        <div class="col">-->
-        <!--                            <img class="reviews__img" src="images/reviews/3.jpg"/>-->
-        <!--                        </div>-->
-        <!--                        <div class="col">-->
-        <!--                            <img class="reviews__img" src="images/reviews/4.jpg"/>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
 
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </section>-->
-        <!--        <section class="buy-end">-->
-        <!--            <div class="container-fluid">-->
-        <!--                <div class="row">-->
-        <!--                    <div class="buy-end__left col">-->
-        <!--                        <div class="buy-end__header">-->
-        <!--                            <h3>Заказывайте наушники со <span>скидкой</span> и <span>подарком</span> сейчас!</h3>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                    <div class="buy-end__right col">-->
-        <!--                        <form class="end-form buy-end__form">-->
-        <!--                            <div class="end-form__left-decoration"></div>-->
-        <!--                            <div class="end-form__right-decoration"></div>-->
-        <!--                            <div class="end-form__circle"></div>-->
-        <!--                            <div class="end-form__inner">-->
-        <!--                                <h3 class="end-form__header">Заполните данные для заказа</h3>-->
-        <!--                                <input type="text" placeholder="Имя"/>-->
-        <!--                                <input type="email" placeholder="Телефон"/>-->
-        <!--                                <input type="submit" value="Заказать со скидкой"/>-->
-        <!--                                <p class="end-form__agreement"><span>*</span> Ваши данные не будут использованы для-->
-        <!--                                    спама и передачи третьим лицам.</p>-->
-        <!--                            </div>-->
-        <!--                        </form>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </section>-->
-        <!--        <section class="policy">-->
-        <!--            <div class="container-fluid">-->
-        <!--                <a class="policy__link" href="#">Политика конфиденциальности</a>-->
-        <!--            </div>-->
-        <!--        </section>-->
+        <section id="how-works" class="how-works">
+            <div class="container-fluid">
+                <div class="section-header how-works__header wow animate__fadeInUp" data-wow-delay=".3s">
+                    <h2>Как получить наушники</h2>
+                </div>
+                <div class="how-works__main">
+                    <div class="how-works__sequence">
+                        <div class="how-works__basket">Вы выбираете понравившиеся наушники</div>
+                        <div class="how-works__form">Оставляете заявку через форму заявки на сайте</div>
+                        <div class="how-works__call">Мы перезваниваем Вам для уточнения заказа</div>
+                        <div class="how-works__send">Отправляем Ваш заказ в пункт назначения</div>
+                        <div class="how-works__check">Вы проверяете и оплачиваете товар на почте</div>
+                    </div>
+                    <div class="how-works__sequence-mobile row">
+                        <div class="how-works__item-mobile how-works__basket-mobile col-md col-sm-6">
+                            <img src="/images/how-works/1.png" alt="Наушники i12 TWS"/>
+                            <p>Вы выбираете наушники</p>
+                        </div>
+                        <div class="how-works__item-mobile how-works__form-mobile col-md col-sm-6">
+                            <img src="images/how-works/2.png" alt="Сообщение"/>
+                            <p>Оставляете заявку через форму заявки на сайте</p>
+                        </div>
+                        <div class="how-works__item-mobile how-works__call-mobile col-md col-sm-6">
+                            <img src="images/how-works/3.png" alt="Телефон"/>
+                            <p>Мы перезваниваем Вам для подтверждения заказа</p>
+                        </div>
+                        <div class="how-works__item-mobile how-works__send-mobile col-md col-sm-6">
+                            <img src="images/how-works/4.png" alt="Самолет"/>
+                            <p>Отправляем Ваш заказ в пункт назначения</p>
+                        </div>
+                        <div class="how-works__item-mobile how-works__check-mobile col-md col-sm-12">
+                            <img src="images/how-works/5.png" alt="Кошелек"/>
+                            <p>Вы проверяете и оплачиваете товар на почте</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="reviews" class="reviews">
+            <div class="container-fluid">
+                <div class="section-header reviews__header wow animate__fadeInUp" data-wow-delay=".3s">
+                    <h2>Отзывы наших клиентов</h2>
+                </div>
+                <div class="reviews__main">
+                    <div class="row">
+                        <div class="col-lg col-sm-6">
+                            <img class="reviews__img" src="images/reviews/1.jpg"/>
+                        </div>
+                        <div class="col-lg col-sm-6">
+                            <img class="reviews__img" src="images/reviews/2.jpg"/>
+                        </div>
+                        <div class="col-lg col-sm-6">
+                            <img class="reviews__img" src="images/reviews/3.jpg"/>
+                        </div>
+                        <div class="col-lg col-sm-6">
+                            <img class="reviews__img" src="images/reviews/4.jpg"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="buy-end">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="buy-end__left col-lg">
+                        <div class="buy-end__header">
+                            <h3>Заказывайте наушники со <span>скидкой</span> и <span>подарком</span> сейчас!</h3>
+                        </div>
+                    </div>
+                    <div class="buy-end__right col-lg">
+                        <form class="end-form buy-end__form">
+                            <div class="end-form__left-decoration"></div>
+                            <div class="end-form__right-decoration"></div>
+                            <div class="end-form__circle"></div>
+                            <div class="end-form__inner">
+                                <h3 class="end-form__header">Заполните данные для заказа</h3>
+                                <input type="text" placeholder="Имя"/>
+                                <input class="end-form__phone" type="text" placeholder="Телефон"/>
+                                <input name="hdn" class="hdn" placeholder="email" />
+                                <input type="submit" value="Заказать со скидкой"/>
+                                <p class="end-form__agreement"><span>*</span> Ваши данные не будут использованы для
+                                    спама и передачи третьим лицам.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="policy">
+            <div class="container-fluid">
+                <a class="policy__link" href="policy.html">Политика конфиденциальности</a>
+            </div>
+        </section>
     </main>
 </div>
 </body>

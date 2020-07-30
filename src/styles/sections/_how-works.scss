@@ -1,5 +1,6 @@
 // Как получить наушники
 @import "../variables";
+@import "../../../node_modules/bootstrap/scss/variables";
 
 .how-works {
   background: #fcfcfc;
@@ -8,12 +9,38 @@
     &::after {
       border: 5px solid #fcfcfc;
     }
+
+    @media (max-width: map-get($grid-breakpoints, 'sm')) {
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 478px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      h2 {
+        font-size: 2rem;
+      }
+    }
   }
 
   &__main {
     padding: 1rem 100px 5rem;
     max-width: 1500px;
     margin: 0 auto;
+
+    @media only screen and (max-width: #{map-get($grid-breakpoints, 'xl')}) {
+      padding: 1rem 15px 5rem;
+    }
+
+    @media only screen and (max-width: #{map-get($grid-breakpoints, 'md')}) {
+      padding: 1rem 0 5rem;
+    }
   }
 
   &__sequence {
@@ -53,6 +80,7 @@
   }
 
   &__sequence-mobile {
+    font-size: 1.2rem;
     display: none;
     margin: 1.4rem 0 0 0;
     text-align: center;
@@ -64,6 +92,10 @@
     & img {
       width: 100px;
     }
+  }
+
+  &__item-mobile {
+    margin: 25px 0 0 0;
   }
 }
 
@@ -103,7 +135,6 @@
 
     &__sequence-mobile {
       display: flex;
-      color: #e0e0e0;
     }
   }
 }

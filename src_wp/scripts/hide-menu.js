@@ -1,16 +1,14 @@
 //сокрытие меню при прокрутке вниз
-import $ from "jquery";
-
-let $menu = $('.menu'),
+let menu = document.querySelector('.menu'),
     scrollPrev = 0;
 
-$(window).scroll(function() {
-    let scrolled = $(window).scrollTop();
+window.addEventListener('scroll',() => {
+    let scrolled = window.pageYOffset;
 
     if ( scrolled > 100 && scrolled > scrollPrev ) {
-        $menu.addClass('out');
+        menu.classList.add('out');
     } else {
-        $menu.removeClass('out');
+        menu.classList.remove('out');
     }
     scrollPrev = scrolled;
 });
