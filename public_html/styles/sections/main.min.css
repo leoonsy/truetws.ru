@@ -6922,7 +6922,7 @@ a:hover {
 }
 
 .policy__link {
-  display: block;
+  display: inline-block;
   text-align: center;
   padding: 30px 10px;
   color: #fff !important;

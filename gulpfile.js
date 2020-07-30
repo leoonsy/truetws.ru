@@ -58,6 +58,15 @@ let path = {
         img: srcFolders[key] + '**/*.(jpg|jpeg|png|svg|gif)',
         other: srcFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
+    },
+    build: {
+        html: buildFolders[key] + '**/*.+(html|php|tpl)',
+        js: buildFolders[key] + '**/*.js',
+        scss: buildFolders[key] + '**/*.+(sass|scss)',
+        css: buildFolders[key] + '**/*.css',
+        img: buildFolders[key] + '**/*.+(jpg|jpeg|png|svg|gif)',
+        other: buildFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: buildFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     }
 };
 
@@ -161,31 +170,32 @@ gulp.task('dots:build', () => {
 
 // удаление js
 gulp.task('js:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.js, {read: false})
+    return gulp.src(path.build.js, {read: false})
         .pipe(rimraf());
 });
 
 // удаление img
 gulp.task('img:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.img, {read: false})
+    return gulp.src(path.build.img, {read: false})
         .pipe(rimraf());
 });
 
 // удаление html
 gulp.task('html:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.html, {read: false})
+    return gulp.src(path.build.html, {read: false})
         .pipe(rimraf());
 });
 
 // удаление css
 gulp.task('css:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.css, {read: false})
+    return gulp.src(path.build.css, {read: false})
         .pipe(rimraf());
 });
 
 // удаление scss
 gulp.task('scss:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.scss, {read: false})
+    console.log(path.build.scss);
+    return gulp.src(path.build.scss, {read: false})
         .pipe(rimraf());
 });
 
@@ -201,19 +211,19 @@ gulp.task('style:clean',
 
 // удаление other
 gulp.task('other:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.other, {read: false })
+    return gulp.src(path.build.other, {read: false })
         .pipe(rimraf());
 });
 
 // удаление dots
 gulp.task('dots:clean', () => {
-    return gulp.src(buildFolders[key] + path.src.dots, {read: false })
+    return gulp.src(path.build.dots, {read: false })
         .pipe(rimraf());
 });
 
 // удаление каталога dist 
 gulp.task('clean', () => {
-    return gulp.src(buildFolders[key] + '*', {read: false})
+    return gulp.src(buildFolders[key] + '*', {read: false, dot: true})
         .pipe(rimraf());
 });
 
