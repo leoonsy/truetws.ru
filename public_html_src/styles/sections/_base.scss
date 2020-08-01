@@ -79,6 +79,14 @@ a:hover {
   }
 }
 
+button,
+button:active,
+button:focus,
+input[type=submit]:active,
+input[type=submit]:focus { 
+  outline: none !important;
+}
+
 .text-blue {
   color: #0c82d0;
 }

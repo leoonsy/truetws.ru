@@ -60,16 +60,19 @@
                         <li class="header__advantages-item">Быстрая доставка</li>
                         <li class="header__advantages-item">Всегда лучшие цены</li>
                     </ul>
-                    <div class="header__form wow animate__fadeInLeft" data-wow-delay=".9s">
+                    <form class="header__form wow animate__fadeInLeft" method="post" data-wow-delay=".9s">
                         <label class="header__mobile-hint" for="header__mobile-number">Введите ваш телефон: <span
                                 class="header__required">*</span></label>
+                        <input type="hidden" name="name" value="Использована первая форма без имени" />
                         <input class="header__mobile-number" id="header__mobile-number" type="text"
                                placeholder="Номер телефона"
-                               required/>
-                        <input name="hdn" class="hdn" placeholder="email"/>
-                        <button class="header__buy">Оставить заявку</button>
+                               name="phone"
+                               required
+                               />
+                        <input name="hdn" class="hdn" placeholder="email" />
+                        <input type="submit" class="header__buy" value="Оставить заявку" />
                         <div class="header__form-end">и получить скидку в размере <span>50%</span></div>
-                    </div>
+                    </form>
                 </div>
                 <img class="header__black-i12 wow animate__fadeInUp" data-wow-delay="1s" src="images/black-i12.png"
                      alt="Черный i12 TWS"/>
@@ -168,7 +171,50 @@
                     </div>
                 </div>
                 <div class="characters__buy-wrapper">
-                    <button class="characters__buy">Заказать сейчас</button>
+                    <button class="characters__buy" data-micromodal-trigger="modal-buy">Заказать сейчас</button>
+                </div>
+
+                <div class="modal micromodal-slide" id="modal-buy" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-buy-title">
+                            <header class="modal__header">
+                                <h2 class="modal__title" id="modal-buy-title">
+                                    Оформление заявки со скидкой и подарком
+                                </h2>
+                                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                            </header>
+                            <div class="modal__content" id="modal-buy-content">
+                                <form class="modal-form" method="post">
+                                    <h3 class="modal-form__header">Заполните данные для заказа</h3>
+                                    <input name="name" type="text" placeholder="Имя" required/>
+                                    <input name="phone" class="modal-form__phone" type="text" placeholder="Телефон" required />
+                                    <input name="hdn" class="hdn" placeholder="email"/>
+                                    <input type="submit" value="Заказать со скидкой"/>
+                                    <p class="modal-form__agreement"><span>*</span> Ваши данные не будут использованы для
+                                        спама и передачи третьим лицам.</p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal micromodal-slide" id="modal-message" aria-hidden="true">
+                    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-message-title">
+                            <header class="modal__header">
+                                <h2 class="modal__title" id="modal-message-title">
+                                    Заголовок
+                                </h2>
+                                <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+                            </header>
+                            <div class="modal__content" id="modal-message-content">
+                                Сообщение
+                            </div>
+                            <div class="modal__footer">
+                                <button class="modal__btn modal__btn-primary" data-micromodal-close>Хорошо</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -291,9 +337,9 @@
                                     <div class="buy-form__text">
                                         Оформите заявку со <span class="text-blue">скидкой и подарком</span>
                                     </div>
-                                    <form class="buy-form__form" name="buy" action="/">
-                                        <input class="buy-form__name" placeholder="Имя" type="text" name="name"/>
-                                        <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone"/>
+                                    <form class="buy-form__form" name="buy" method="post">
+                                        <input name="name" class="buy-form__name" placeholder="Имя" type="text" required />
+                                        <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone" required />
                                         <input name="hdn" class="hdn" placeholder="email"/>
                                         <input class="buy-form__submit" type="submit" value="Заказать"/>
                                     </form>
@@ -379,14 +425,14 @@
                         </div>
                     </div>
                     <div class="buy-end__right col-lg">
-                        <form class="end-form buy-end__form wow animate__slideInRight" data-wow-delay=".3s">
+                        <form class="end-form buy-end__form wow animate__slideInRight" method="post" data-wow-delay=".3s">
                             <div class="end-form__left-decoration"></div>
                             <div class="end-form__right-decoration"></div>
                             <div class="end-form__circle"></div>
                             <div class="end-form__inner">
                                 <h3 class="end-form__header">Заполните данные для заказа</h3>
-                                <input type="text" placeholder="Имя"/>
-                                <input class="end-form__phone" type="text" placeholder="Телефон"/>
+                                <input name="name" type="text" placeholder="Имя" required />
+                                <input name="phone" class="end-form__phone" type="text" placeholder="Телефон" required />
                                 <input name="hdn" class="hdn" placeholder="email"/>
                                 <input type="submit" value="Заказать со скидкой"/>
                                 <p class="end-form__agreement"><span>*</span> Ваши данные не будут использованы для

@@ -1,0 +1,13 @@
+{
+    "name": "leoon/truetws",
+    "type": "project",
+    "authors": [
+        {
+            "name": "leoonsy",
+            "email": "yashanovsky.sergey@ya.ru"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    }
+}
