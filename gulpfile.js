@@ -42,7 +42,7 @@ let buildFolders = {
 /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
 let path = {
     src: {
-        html: srcFolders[key] + '**/[^_]*.+(html|php|tpl)',
+        html: srcFolders[key] + '**/[^_]*.+(html|tpl)',
         js: srcFolders[key] + '**/[^_]*.js',
         scss: srcFolders[key] + '**/[^_]*.+(sass|scss)',
         css: srcFolders[key] + '**/[^_]*.css',
@@ -51,12 +51,12 @@ let path = {
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     watch: {
-        html: srcFolders[key] + '**/*.+(html|php|tpl)',
+        html: srcFolders[key] + '**/*.+(html|tpl)',
         js: srcFolders[key] + '**/*.js',
         css: srcFolders[key] + '**/*.css',
         scss: srcFolders[key] + '**/*.+(sass|scss)',
         img: srcFolders[key] + '**/*.(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        other: srcFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     build: {
@@ -143,16 +143,16 @@ gulp.task('js:build', () => {
 // сбор img
 gulp.task('img:build', () => {
     return gulp.src(path.src.img) // получим файлы img
-        .pipe(gulpif(isProd, cache(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imageminJpegRecompress({
-                progressive: true,
-                max: 80,
-                min: 60
-            }),
-            imageminPngquant({quality: [0.6, 0.8]}),
-            imagemin.svgo({plugins: [{removeViewBox: true}]})
-        ]))))
+        // .pipe(gulpif(isProd, cache(imagemin([
+        //     imagemin.gifsicle({interlaced: true}),
+        //     imageminJpegRecompress({
+        //         progressive: true,
+        //         max: 80,
+        //         min: 60
+        //     }),
+        //     imageminPngquant({quality: [0.6, 0.8]}),
+        //     imagemin.svgo({plugins: [{removeViewBox: true}]})
+        // ]))))
         .pipe(gulp.dest(buildFolders[key])) // положим файлы
 });
 

@@ -49,7 +49,6 @@ buyForms.forEach(form => {
             modalTitle.classList.add('text-danger');
             
             modalContent.innerHTML = message;
-            
         }
         
         MicroModal.show('modal-message', {
