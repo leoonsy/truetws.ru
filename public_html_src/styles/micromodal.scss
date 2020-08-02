@@ -3,6 +3,8 @@
 $mainColor: #0079de;
 .modal {
   min-width: 240px;
+  position: relative;
+  z-index: 10000;
   &__overlay {
     position: fixed;
     top: 0;
