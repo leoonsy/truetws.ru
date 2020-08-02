@@ -46,4 +46,4 @@ RewriteRule . %1 [R=301,L]
 
 # Решил не делать все на index.php и роутинг, а пусть просто отдается соответствующий запросу html файл без окончания html, одностраничник ведь...
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^.]+)$ $1.php [NC,L]
+RewriteRule ^([^.]+)$ $1.html [NC,L]
