@@ -412,6 +412,14 @@ a:hover {
   background: #2977af;
 }
 
+button,
+button:active,
+button:focus,
+input[type=submit]:active,
+input[type=submit]:focus {
+  outline: none !important;
+}
+
 .text-blue {
   color: #0c82d0;
 }
@@ -441,6 +449,10 @@ a:hover {
 
 .policy-text ol {
   margin-left: 15px;
+}
+
+.policy-text p {
+  margin: 0;
 }
 
 /*# sourceMappingURL=policy.min.css.map */

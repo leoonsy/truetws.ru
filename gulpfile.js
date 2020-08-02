@@ -47,7 +47,7 @@ let path = {
         scss: srcFolders[key] + '**/[^_]*.+(sass|scss)',
         css: srcFolders[key] + '**/[^_]*.css',
         img: srcFolders[key] + '**/[^_]*.+(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/[^_]*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        other: srcFolders[key] + '**/[^_]*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     watch: {
@@ -60,12 +60,12 @@ let path = {
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     build: {
-        html: buildFolders[key] + '**/*.+(html|php|tpl)',
+        html: buildFolders[key] + '**/*.+(html|tpl)',
         js: buildFolders[key] + '**/*.js',
         scss: buildFolders[key] + '**/*.+(sass|scss)',
         css: buildFolders[key] + '**/*.css',
         img: buildFolders[key] + '**/*.+(jpg|jpeg|png|svg|gif)',
-        other: buildFolders[key] + '**/*.!(html|php|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        other: buildFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: buildFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     }
 };
