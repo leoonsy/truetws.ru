@@ -5,6 +5,8 @@ const mode = argv.mode || 'development';
 const config = argv.config || 'main';
 const isDevelopment = mode == 'development';
 const isProduction = !isDevelopment;
+const webpack = require('webpack');
+
 console.log(`Режим: ${mode}`);
 console.log(`Конфиг: ${config}`);
 
@@ -19,7 +21,12 @@ const baseConfig = {
             },
         ]
     },
-    devtool: isDevelopment ? 'eval-sourcemap' : false
+    devtool: isDevelopment ? 'eval-sourcemap' : false,
+    plugins: [
+        new webpack.IgnorePlugin({
+            resourceRegExp: /^\.\/locale$/
+        })
+    ]
 };
 
 module.exports = baseConfig;

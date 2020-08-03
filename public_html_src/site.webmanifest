@@ -1,6 +1,6 @@
 {
-    "name": "TrueTWS",
-    "short_name": "TrueTWS",
+    "name": "TWSRussia",
+    "short_name": "TWSRussia",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
     ],
     "theme_color": "#363636",
     "background_color": "#363636",
-    "start_url": "https://truetws.ru",
+    "start_url": "https://twsrussia.ru",
     "display": "standalone"
 }

@@ -66,6 +66,7 @@
     "jquery": "^3.5.1",
     "jquery.maskedinput": "^1.4.1",
     "micromodal": "^0.4.6",
+    "moment": "^2.27.0",
     "slick-carousel": "^1.8.1",
     "wow.js": "^1.2.2"
   }

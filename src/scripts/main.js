@@ -5,5 +5,6 @@ import './slider'
 import './changeContainer'
 import './menu-highlighting'
 import './buy'
+import './timer'
 import MicroModal from 'micromodal'
 MicroModal.init()
