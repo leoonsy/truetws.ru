@@ -23,6 +23,22 @@
     <meta name="og:url" content="https://twsrussia.ru" />
     <meta name="og:type" content="website" />
     <meta name="og:image" content='https://twsrussia.ru/images/og-main.jpg' />
+    <meta name="yandex-verification" content="e32a164bbd262859" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(66123454, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66123454" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div class="wrapper">
@@ -51,7 +67,17 @@
             </ul>
         </nav>
         <div class="menu__phone">
-            <img src="images/tel.svg" alt="Телефон" class="menu__phone-img">
+            <div class="menu__socials">
+                <a href="viber://add?number=79198524962">
+                    <img src="images/viber.svg" alt="viber" class="menu__img menu__img--viber">
+                </a>
+                <a href="whatsapp://send?phone=+79198524962">
+                    <img src="images/whatsapp.svg" alt="whatsapp" class="menu__img">
+                </a>
+                <a href="tel:+79198524962">
+                    <img src="images/tel.svg" alt="Телефон" class="menu__img menu__img--tel">
+                </a>
+            </div>
             <div class="menu__phone-text">
                 <a class="menu__phone-number" href="tel:+79198524962">+7(919)852-49-62</a>
                 <div class="menu__phone-time">Работаем круглосуточно!</div>
@@ -76,7 +102,7 @@
                         <label class="header__mobile-hint" for="header__mobile-number">Введите ваш телефон: <span
                                 class="header__required">*</span></label>
                         <input type="hidden" name="name" value="Использована первая форма без имени" />
-                        <input class="header__mobile-number" id="header__mobile-number" type="text"
+                        <input class="header__mobile-number" id="header__mobile-number" type="tel"
                                placeholder="Номер телефона"
                                name="phone" 
                                required
@@ -115,7 +141,7 @@
                     <div class="col-sm-6 why-we__item-content">
                         <h3 class="why-we__item-header">100% контроль качества.</h3>
                         <p class="why-we__item-text">Больше не нужно искать качественный товар, мы сделали это за
-                            Вас.</p>
+                            Вас. Заменим товар на новый при гарантийном случае.</p>
                     </div>
                 </div>
                 <div class="why-we__item row wow animate__fadeInLeft" data-wow-delay=".7s">
@@ -308,7 +334,7 @@
                                     </div>
                                     <form class="buy-form__form" name="buy" method="post">
                                         <input name="name" class="buy-form__name" placeholder="Имя" type="text" required />
-                                        <input class="buy-form__phone" placeholder="Телефон" type="text" name="phone" required />
+                                        <input class="buy-form__phone" placeholder="Телефон" type="tel" name="phone" required />
                                         <input name="hdn" class="hdn" placeholder="email"/>
                                         <input class="buy-form__submit" type="submit" value="Заказать"/>
                                     </form>
@@ -401,7 +427,7 @@
                             <div class="end-form__inner">
                                 <h3 class="end-form__header">Заполните данные для заказа</h3>
                                 <input name="name" type="text" placeholder="Имя" required />
-                                <input name="phone" class="end-form__phone" type="text" placeholder="Телефон" required />
+                                <input name="phone" class="end-form__phone" type="tel" placeholder="Телефон" required />
                                 <input name="hdn" class="hdn" placeholder="email"/>
                                 <input type="submit" value="Заказать со скидкой"/>
                                 <p class="end-form__agreement"><span>*</span> Ваши данные не будут использованы для
@@ -414,6 +440,7 @@
         </section>
         <section class="policy">
             <div class="container-fluid">
+                <p class="policy__address">Юр. адрес: Россия, Москва, ул. Студенческая, 15, 3 подъезд, цокольный этаж; 1 офис</p>
                 <h3 class="text-center">
                     <a class="policy__link" href="policy">Политика конфиденциальности</a>
                 </h3>
@@ -433,7 +460,7 @@
                     <form class="modal-form" method="post">
                         <h3 class="modal-form__header">Заполните данные для заказа</h3>
                         <input name="name" type="text" placeholder="Имя" required/>
-                        <input name="phone" class="modal-form__phone" type="text" placeholder="Телефон" required />
+                        <input name="phone" class="modal-form__phone" type="tel" placeholder="Телефон" required />
                         <input name="hdn" class="hdn" placeholder="email"/>
                         <input type="submit" value="Заказать со скидкой"/>
                         <p class="modal-form__agreement"><span>*</span> Ваши данные не будут использованы для

@@ -1,8 +1,6 @@
 //маска для телефона
-import $ from "jquery";
-import 'jquery.maskedinput/src/jquery.maskedinput';
+import InputMask from "inputmask";
 
-$(".header__mobile-number").mask("+7(999)999-99-99", { autoclear: false });
-$(".buy-form__phone").mask("+7(999)999-99-99", { autoclear: false });
-$(".end-form__phone").mask("+7(999)999-99-99", { autoclear: false });
-$(".modal-form__phone").mask("+7(999)999-99-99", { autoclear: false });
+let selector = document.querySelectorAll('input[type=tel]');
+let im = new InputMask('+7 (999) 999-99-99');
+im.mask(selector);

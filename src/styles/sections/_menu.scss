@@ -1,7 +1,7 @@
 // Меню
 @import "../variables";
 
-$hamburgerMaxWidth: 930px;
+$hamburgerMaxWidth: 1136px;
 $menuHeight: 286px;
 
 .menu {
@@ -12,11 +12,15 @@ $menuHeight: 286px;
   left: 0;
   right: 0;
   background: rgba(20, 20, 20, 0.85);
-  z-index: 100000;
+  z-index: 10000;
   min-height: 72px;
 
   @media (max-width: 852px) {
     padding-bottom: 0;
+  }
+
+  @media (max-width: 462px) {
+    min-height: 142px;
   }
 
   &.out {
@@ -30,7 +34,8 @@ $menuHeight: 286px;
     font-size: 1.1rem;
     transition: all ease 1s;
     overflow: hidden;
-    @media (max-width: 1304px) {
+    
+    @media (max-width: 1388px) {
       margin-right: 243px;
     }
 
@@ -38,6 +43,10 @@ $menuHeight: 286px;
       height: 0;
       margin-right: 0;
       margin-top: 70px;
+    }
+
+    @media (max-width: 462px) {
+      margin-top: 140px;
     }
   }
 
@@ -129,19 +138,44 @@ $menuHeight: 286px;
       top: 15px;
     }
 
-    @media (max-width: 294px) {
-      top: 25px;
+    @media (max-width: 462px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  &__socials {
+    a {
+      display: inline-block;
+      opacity: .8;
+      transition: opacity .3s;
+      
+      &:hover {
+        opacity: 1;
+      }
     }
 
+    @media (max-width: 462px) {
+      margin: 0 0 10px 0;
+    }
   }
 
-  &__phone-img {
+  &__img {
     width: 40px;
-    margin: 0 17px 0 0;
+    margin: 0 7px 0 0;
+  }
 
-    @media (max-width: 350px) {
+  &__img--tel {
+    margin: 0 12px 0 0;
+    @media (max-width: 462px) {
       display: none;
     }
+  }
+  
+  &__img--viber {
+    width: 55px;
+    transform: translateY(4px);
+    margin-right: 0;
   }
 
   &__phone-number {
@@ -154,9 +188,13 @@ $menuHeight: 286px;
   }
 
   &__phone-time {
-    @media (max-width: 294px) {
-      display: none;
-    }
+    //@media (max-width: 294px) {
+    //  display: none;
+    //}
+  }
+  
+  &__phone-social {
+    width: 40px;
   }
 
   &__mobile-btn {
@@ -170,6 +208,7 @@ $menuHeight: 286px;
     justify-content: center;
     cursor: pointer;
     transition: .4s;
+    z-index: 1000;
 
     @media (max-width: $hamburgerMaxWidth) {
       display: flex;

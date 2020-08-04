@@ -356,7 +356,8 @@
   input {
     display: block;
 
-    &[type="text"] {
+    &[type="text"],
+    &[type="tel"]{
       transition: all 0.30s ease-in-out;
       outline: none;
       width: 100%;

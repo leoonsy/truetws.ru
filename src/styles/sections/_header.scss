@@ -47,6 +47,10 @@
 
   &__top {
     padding: 150px 0 0 0;
+
+    @media (max-width: 462px) {
+      padding: 200px 0 0 0;
+    }
   }
 
   &__top-i12 {
