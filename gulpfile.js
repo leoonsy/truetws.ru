@@ -247,14 +247,15 @@ gulp.task('build',
     )
 );
 
-gulp.task('serve', () => {
-    if (!isDev)
-        return;
-
+gulp.task('serve', async () => {
     browserSync.init({
-        server: {
-            baseDir: buildFolders[key]
-        },
+        proxy: "http://twsrussia",
+        host: "twsrussia",
+        port: 90,
+        open: 'external',
+        // server: {
+        //     baseDir: buildFolders[key]
+        // },
         notify: false
     })
 

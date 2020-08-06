@@ -12,7 +12,7 @@ const price = document.querySelector('.price__number-new').textContent.slice(0, 
 buyForms.forEach(form => {
     form.addEventListener('submit',  async e => {
         e.preventDefault();
-        const data = {
+        const data = { 
             name: form.name.value,
             phone: form.phone.value,
             hdn: form.hdn.value,
@@ -25,6 +25,7 @@ buyForms.forEach(form => {
         const modalContent = document.querySelector('#modal-message-content');
         try {
             const result = await order.sendOrder();
+            ym(66123454,'reachGoal','buy');
             
             modalTitle.innerHTML = "Спасибо за заказ!";
             modalTitle.classList.remove('text-danger');
