@@ -16,36 +16,35 @@ const gulp = require('gulp'),  // подключаем Gulp
     args = require('yargs').argv, //работа с аргументами
     rename = require('gulp-rename'), //переименование
     gulpif = require('gulp-if'), //проверка условий
-    imagemin = require('gulp-imagemin'), //сжатие изображений
-    imageminJpegRecompress = require('imagemin-jpeg-recompress'), //сжатие изображений
-    imageminPngquant = require('imagemin-pngquant'), //сжатие изображений
+    // imagemin = require('gulp-imagemin'), //сжатие изображений
+    // imageminJpegRecompress = require('imagemin-jpeg-recompress'), //сжатие изображений
+    // imageminPngquant = require('imagemin-pngquant'), //сжатие изображений
     browserSync = require('browser-sync').create() //обновление браузера
 
 /* параметры скрипта */
-let mode = args.mode || 'development';
-let key = args.key || 'main',
-    isDev = mode == 'development',
+const mode = args.mode || 'development';
+const key = args.key || 'main',
+    isDev = mode === 'development',
     isProd = !isDev;
 
 console.log(`Ключ: ${key}`);
 
-let srcFolders = {
+const srcFolders = {
     main: 'src/',
-    back: 'public_html_src/'
+    back: 'www_src/'
 };
 
-let buildFolders = {
+const buildFolders = {
     main: 'dist/',
-    back: 'public_html/'
+    back: 'www/'
 }
 
 /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
-let path = {
+const path = {
     src: {
         html: srcFolders[key] + '**/[^_]*.+(html|tpl)',
         js: srcFolders[key] + '**/[^_]*.js',
-        scss: srcFolders[key] + '**/[^_]*.+(sass|scss)',
-        css: srcFolders[key] + '**/[^_]*.css',
+        sass: srcFolders[key] + '**/[^_]*.+(sass|scss)',
         img: srcFolders[key] + '**/[^_]*.+(jpg|jpeg|png|svg|gif)',
         other: srcFolders[key] + '**/[^_]*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
@@ -53,8 +52,7 @@ let path = {
     watch: {
         html: srcFolders[key] + '**/*.+(html|tpl)',
         js: srcFolders[key] + '**/*.js',
-        css: srcFolders[key] + '**/*.css',
-        scss: srcFolders[key] + '**/*.+(sass|scss)',
+        sass: srcFolders[key] + '**/*.+(sass|scss)',
         img: srcFolders[key] + '**/*.(jpg|jpeg|png|svg|gif)',
         other: srcFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
@@ -62,16 +60,20 @@ let path = {
     build: {
         html: buildFolders[key] + '**/*.+(html|tpl)',
         js: buildFolders[key] + '**/*.js',
-        scss: buildFolders[key] + '**/*.+(sass|scss)',
-        css: buildFolders[key] + '**/*.css',
+        sass: buildFolders[key] + '**/*.+(sass|scss)',
         img: buildFolders[key] + '**/*.+(jpg|jpeg|png|svg|gif)',
         other: buildFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
         dots: buildFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     }
 };
 
+//является ли файл минифицированым
+const isNotMinifiedFile = (file) => {
+    return !/.*\.min\.js/.test(file.history[0]);
+};
+
 // сбор html
-gulp.task('html:build', () => {
+const htmlBuild = () => {
     return gulp.src(path.src.html) // выбор всех html файлов по указанному пути
         .pipe(plumber()) // отслеживание ошибок
         .pipe(rigger()) // импорт вложений
@@ -79,28 +81,12 @@ gulp.task('html:build', () => {
             collapseWhitespace: true, // удаляем все переносы
             removeComments: true // удаляем все комментарии
         })))
-        //нам не нужны html в back
-        .pipe(gulp.dest(buildFolders[key])) // выгружаем в dist
-});
+        .pipe(gulp.dest(buildFolders[key])) // выгружаем
+};
 
-// css компиляция
-gulp.task('css:build', () => {
-    return gulp.src(path.src.css) // получим все стили css
-        .pipe(plumber()) // для отслеживания ошибок
-        .pipe(rename({suffix: ".min"}))
-        .pipe(gulpif(isDev, sourcemaps.init())) // инициализируем sourcemap
-        .pipe(autoprefixer({ //префиксы
-            overrideBrowserslist: ['last 25 versions'],
-            cascade: false
-        }))
-        .pipe(gulpif(isProd, cleanCSS())) // минимизируем CSS
-        .pipe(gulpif(isDev, sourcemaps.write('./'))) // записываем sourcemap
-        .pipe(gulp.dest(buildFolders[key])) // выгружаем в dist
-});
-
-// scss компиляция
-gulp.task('scss:build', () => {
-    return gulp.src(path.src.scss) // получим все стили scss
+// sass сборка
+const sassBuild = () => {
+    return gulp.src(path.src.sass) // получим все стили scss
         .pipe(plumber()) // для отслеживания ошибок
         .pipe(rename({suffix: ".min"}))
         .pipe(gulpif(isDev, sourcemaps.init())) // инициализируем sourcemap
@@ -112,14 +98,10 @@ gulp.task('scss:build', () => {
         .pipe(gulpif(isProd, cleanCSS())) // минимизируем CSS
         .pipe(gulpif(isDev, sourcemaps.write('./'))) // записываем sourcemap
         .pipe(gulp.dest(buildFolders[key])) // выгружаем в dist
-});
-
-const isNotMinifiedFile = (file) => {
-    return !/.*\.min\.js/.test(file.history[0]);
 };
 
 // сбор js
-gulp.task('js:build', () => {
+const jsBuild = () => {
     return gulp.src(path.src.js) // получим файлы js
         .pipe(gulpif(isNotMinifiedFile, rename({suffix: ".min"})))
         .pipe(plumber()) // для отслеживания ошибок
@@ -137,11 +119,11 @@ gulp.task('js:build', () => {
         })))
         .pipe(gulpif(isProd, uglify())) // минимизируем js
         .pipe(gulpif(isDev, sourcemaps.write('./'))) //  записываем sourcemap
-        .pipe(gulp.dest(buildFolders[key])) // положим готовый файл
-});
+        .pipe(gulp.dest(buildFolders[key])) // готовый файл
+};
 
 // сбор img
-gulp.task('img:build', () => {
+const imgBuild = () => {
     return gulp.src(path.src.img) // получим файлы img
         // .pipe(gulpif(isProd, cache(imagemin([
         //     imagemin.gifsicle({interlaced: true}),
@@ -154,130 +136,85 @@ gulp.task('img:build', () => {
         //     imagemin.svgo({plugins: [{removeViewBox: true}]})
         // ]))))
         .pipe(gulp.dest(buildFolders[key])) // положим файлы
-});
+};
 
 // сбор остального
-gulp.task('other:build', () => {
-    return gulp.src(path.src.other) // выбор всех других файлов по указанному пути
-        .pipe(gulp.dest(buildFolders[key])) // выкладывание готовых файлов
-});
+const otherBuild = () => {
+    return gulp.src(path.src.other) 
+        .pipe(gulp.dest(buildFolders[key])) 
+};
 
-// сбор остального
-gulp.task('dots:build', () => {
-    return gulp.src(path.src.dots) // выбор всех точечных файлов по указанному пути
-        .pipe(gulp.dest(buildFolders[key])) // выкладывание готовых файлов
-});
-
-// удаление js
-gulp.task('js:clean', () => {
-    return gulp.src(path.build.js, {read: false})
-        .pipe(rimraf());
-});
-
-// удаление img
-gulp.task('img:clean', () => {
-    return gulp.src(path.build.img, {read: false})
-        .pipe(rimraf());
-});
-
-// удаление html
-gulp.task('html:clean', () => {
-    return gulp.src(path.build.html, {read: false})
-        .pipe(rimraf());
-});
-
-// удаление css
-gulp.task('css:clean', () => {
-    return gulp.src(path.build.css, {read: false})
-        .pipe(rimraf());
-});
-
-// удаление scss
-gulp.task('scss:clean', () => {
-    console.log(path.build.scss);
-    return gulp.src(path.build.scss, {read: false})
-        .pipe(rimraf());
-});
-
-// удаление стилей
-gulp.task('style:clean',
-    gulp.series(
-        gulp.parallel(
-            'css:clean',
-            'scss:clean'
-        )
-    )
-);
-
-// удаление other
-gulp.task('other:clean', () => {
-    return gulp.src(path.build.other, {read: false })
-        .pipe(rimraf());
-});
-
-// удаление dots
-gulp.task('dots:clean', () => {
-    return gulp.src(path.build.dots, {read: false })
-        .pipe(rimraf());
-});
+// сбор файлов, начинающихся с точки
+const dotsBuild = () => {
+    return gulp.src(path.src.dots) 
+        .pipe(gulp.dest(buildFolders[key]))
+};
 
 // удаление каталога dist 
-gulp.task('clean', () => {
+const clean = () => {
     return gulp.src(buildFolders[key] + '*', {read: false, dot: true})
         .pipe(rimraf());
-});
-
-// сборка стилей
-gulp.task('style:build',
-    gulp.parallel(
-        'css:build',
-        'scss:build'
-    )
-);
+};
 
 // сборка всего
-gulp.task('build',
-    gulp.parallel(
-        'style:build',
-        // 'js:build',
-        'html:build',
-        'img:build',
-        'other:build',
-        'dots:build'
-    )
+const build = gulp.parallel(
+        sassBuild,
+        jsBuild,
+        htmlBuild,
+        imgBuild,
+        otherBuild,
+        dotsBuild
 );
 
-gulp.task('serve', async () => {
+// авто обновление браузера
+const serve = async () => {
     browserSync.init({
-        proxy: "http://twsrussia",
-        host: "twsrussia",
-        port: 90,
-        open: 'external',
-        // server: {
-        //     baseDir: buildFolders[key]
-        // },
+        // proxy: "http://twsrussia",
+        // host: "twsrussia",
+        // port: 90,
+        // open: 'external',
+        server: {
+            baseDir: buildFolders[key]
+        },
         notify: false
     })
 
     browserSync.watch(buildFolders[key] + '**/*.*').on('change', browserSync.reload);
-});
+};
 
-// запуск задач при изменении файлов
-gulp.task('watch', () => {
-    gulp.watch(path.watch.css, gulp.series('css:build'));
-    gulp.watch(path.watch.scss, gulp.series('scss:build'));
+// слежение за изменениями
+const watch = () => {
+    gulp.watch(path.watch.sass, sassBuild);
     // gulp.watch(path.watch.js, gulp.series('js:build'));
-    gulp.watch(path.watch.html, gulp.series('html:build'));
-    gulp.watch(path.watch.img, gulp.series('img:build'));
-    gulp.watch(path.watch.other, gulp.series('other:build'));
-    gulp.watch(path.watch.dots, gulp.series('dots:build'));
-});
+    gulp.watch(path.watch.html, htmlBuild);
+    gulp.watch(path.watch.img, imgBuild);
+    gulp.watch(path.watch.other, otherBuild);
+    gulp.watch(path.watch.dots, dotsBuild);
+};
 
 // очистка кэша
-gulp.task('cache:clear', async () => {
+const cleanCache = async () => {
     await cache.clearAll();
+};
+
+//генератор задач удаления определенных расширений
+const cleanTaskGenerator = (key) => () => 
+    gulp.src(path.build[key], {read: false})
+            .pipe(rimraf());
+
+exports['html:build'] = htmlBuild;
+exports['sass:build'] = sassBuild;
+exports['js:build'] = jsBuild;
+exports['img:build'] = imgBuild;
+exports['other:build'] = otherBuild;
+exports['dots:build'] = dotsBuild;
+exports['clean'] = clean;
+Object.keys(path.src).forEach(key => {
+    exports[`${key}:clean`] =  cleanTaskGenerator(key);
 });
-
-gulp.task('build-watch', gulp.series('build', 'watch'));
-
-gulp.task('default', gulp.series('build', gulp.parallel('serve', 'watch')));
+exports['cache:clean'] = cleanCache;
+exports['build'] = build;
+exports['serve'] = serve;
+exports['watch'] = watch;
+exports['build-watch'] =  gulp.series(build, watch);
+exports.default = gulp.series(build, gulp.parallel(serve, watch));

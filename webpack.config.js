@@ -1,6 +1,6 @@
 //конфигурация webpack
 const path = require('path')
-const baseConfig = require('./webpack.config.base');
+const baseConfig = require('./webpack.base.config');
 
 //главная конфигурация для верстки и т.д. (без взаимодействия с сервером)
 const mainConfig = {
