@@ -1,14 +1,10 @@
 //общая конфигурация webpack
 const path = require('path')
-const argv = require('minimist')(process.argv.slice(2));
-const mode = argv.mode || 'development';
-const config = argv.config || 'main';
-const isDevelopment = mode == 'development';
-const isProduction = !isDevelopment;
 const webpack = require('webpack');
+require('dotenv').config();
 
-console.log(`Режим: ${mode}`);
-console.log(`Конфиг: ${config}`);
+const mode = process.env.MODE || 'development';
+const isDevelopment = mode === 'development';
 
 const baseConfig = {
     mode,
@@ -21,12 +17,7 @@ const baseConfig = {
             },
         ]
     },
-    devtool: isDevelopment ? 'eval-sourcemap' : false,
-    plugins: [
-        new webpack.IgnorePlugin({
-            resourceRegExp: /^\.\/locale$/
-        })
-    ]
+    devtool: isDevelopment ? 'eval-source-map' : false
 };
 
 module.exports = baseConfig;

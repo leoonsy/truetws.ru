@@ -21,49 +21,56 @@ const gulp = require('gulp'),  // подключаем Gulp
     // imageminPngquant = require('imagemin-pngquant'), //сжатие изображений
     browserSync = require('browser-sync').create() //обновление браузера
 
+require('dotenv').config();
+
 /* параметры скрипта */
-const mode = args.mode || 'development';
-const key = args.key || 'main',
+const mode = process.env.MODE || 'development';
+const config = process.env.CONFIG || 'main',
     isDev = mode === 'development',
     isProd = !isDev;
 
-console.log(`Ключ: ${key}`);
+console.log(`Режим: ${mode}`);
+console.log(`Конфигурация: ${config}`);
 
 const srcFolders = {
     main: 'src/',
-    back: 'www_src/'
+    back: 'public_html_src/'
 };
 
 const buildFolders = {
     main: 'dist/',
-    back: 'www/'
+    back: 'public_html/'
 }
+
+const jsFilesSrc = [
+    srcFolders[config] + '**/test.js',
+];
 
 /* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
 const path = {
     src: {
-        html: srcFolders[key] + '**/[^_]*.+(html|tpl)',
-        js: srcFolders[key] + '**/[^_]*.js',
-        sass: srcFolders[key] + '**/[^_]*.+(sass|scss)',
-        img: srcFolders[key] + '**/[^_]*.+(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/[^_]*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
-        dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
+        html: srcFolders[config] + '**/[^_]*.+(html|tpl)',
+        js: jsFilesSrc,
+        sass: srcFolders[config] + '**/[^_]*.+(sass|scss)',
+        img: srcFolders[config] + '**/[^_]*.+(jpg|jpeg|png|svg|gif)',
+        other: srcFolders[config] + '**/[^_]*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: srcFolders[config] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     watch: {
-        html: srcFolders[key] + '**/*.+(html|tpl)',
-        js: srcFolders[key] + '**/*.js',
-        sass: srcFolders[key] + '**/*.+(sass|scss)',
-        img: srcFolders[key] + '**/*.(jpg|jpeg|png|svg|gif)',
-        other: srcFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
-        dots: srcFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
+        html: srcFolders[config] + '**/*.+(html|tpl)',
+        js: jsFilesSrc,
+        sass: srcFolders[config] + '**/*.+(sass|scss)',
+        img: srcFolders[config] + '**/*.(jpg|jpeg|png|svg|gif)',
+        other: srcFolders[config] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: srcFolders[config] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     },
     build: {
-        html: buildFolders[key] + '**/*.+(html|tpl)',
-        js: buildFolders[key] + '**/*.js',
-        sass: buildFolders[key] + '**/*.+(sass|scss)',
-        img: buildFolders[key] + '**/*.+(jpg|jpeg|png|svg|gif)',
-        other: buildFolders[key] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
-        dots: buildFolders[key] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
+        html: buildFolders[config] + '**/*.+(html|tpl)',
+        js: buildFolders[config] + '**/*.js',
+        sass: buildFolders[config] + '**/*.+(sass|scss)',
+        img: buildFolders[config] + '**/*.+(jpg|jpeg|png|svg|gif)',
+        other: buildFolders[config] + '**/*.!(html|js|sass|scss|css|jpg|jpeg|png|svg|gif|tpl)',
+        dots: buildFolders[config] + '**/.*' //не получилось в watch запихать dots файлы и через |, гребаный node-glob
     }
 };
 
@@ -81,7 +88,7 @@ const htmlBuild = () => {
             collapseWhitespace: true, // удаляем все переносы
             removeComments: true // удаляем все комментарии
         })))
-        .pipe(gulp.dest(buildFolders[key])) // выгружаем
+        .pipe(gulp.dest(buildFolders[config])) // выгружаем
 };
 
 // sass сборка
@@ -97,7 +104,7 @@ const sassBuild = () => {
         }))
         .pipe(gulpif(isProd, cleanCSS())) // минимизируем CSS
         .pipe(gulpif(isDev, sourcemaps.write('./'))) // записываем sourcemap
-        .pipe(gulp.dest(buildFolders[key])) // выгружаем в dist
+        .pipe(gulp.dest(buildFolders[config])) // выгружаем в dist
 };
 
 // сбор js
@@ -119,7 +126,7 @@ const jsBuild = () => {
         })))
         .pipe(gulpif(isProd, uglify())) // минимизируем js
         .pipe(gulpif(isDev, sourcemaps.write('./'))) //  записываем sourcemap
-        .pipe(gulp.dest(buildFolders[key])) // готовый файл
+        .pipe(gulp.dest(buildFolders[config])) // готовый файл
 };
 
 // сбор img
@@ -135,24 +142,24 @@ const imgBuild = () => {
         //     imageminPngquant({quality: [0.6, 0.8]}),
         //     imagemin.svgo({plugins: [{removeViewBox: true}]})
         // ]))))
-        .pipe(gulp.dest(buildFolders[key])) // положим файлы
+        .pipe(gulp.dest(buildFolders[config])) // положим файлы
 };
 
 // сбор остального
 const otherBuild = () => {
     return gulp.src(path.src.other) 
-        .pipe(gulp.dest(buildFolders[key])) 
+        .pipe(gulp.dest(buildFolders[config])) 
 };
 
 // сбор файлов, начинающихся с точки
 const dotsBuild = () => {
     return gulp.src(path.src.dots) 
-        .pipe(gulp.dest(buildFolders[key]))
+        .pipe(gulp.dest(buildFolders[config]))
 };
 
 // удаление каталога dist 
 const clean = () => {
-    return gulp.src(buildFolders[key] + '*', {read: false, dot: true})
+    return gulp.src(buildFolders[config] + '*', {read: false, dot: true})
         .pipe(rimraf());
 };
 
@@ -174,18 +181,18 @@ const serve = async () => {
         // port: 90,
         // open: 'external',
         server: {
-            baseDir: buildFolders[key]
+            baseDir: buildFolders[config]
         },
         notify: false
     })
 
-    browserSync.watch(buildFolders[key] + '**/*.*').on('change', browserSync.reload);
+    browserSync.watch(buildFolders[config] + '**/*.*').on('change', browserSync.reload);
 };
 
 // слежение за изменениями
 const watch = () => {
     gulp.watch(path.watch.sass, sassBuild);
-    // gulp.watch(path.watch.js, gulp.series('js:build'));
+    gulp.watch(path.watch.js, gulp.series('js:build'));
     gulp.watch(path.watch.html, htmlBuild);
     gulp.watch(path.watch.img, imgBuild);
     gulp.watch(path.watch.other, otherBuild);
