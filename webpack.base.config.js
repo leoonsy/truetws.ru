@@ -12,12 +12,12 @@ const baseConfig = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: [/\/node_modules\//, /.min/],
+                exclude: [/\/node_modules\//],
                 loader: 'babel-loader'
             },
         ]
     },
-    devtool: isDevelopment ? 'eval-source-map' : false
+    devtool: isDevelopment ? 'source-map' : false
 };
 
 module.exports = baseConfig;

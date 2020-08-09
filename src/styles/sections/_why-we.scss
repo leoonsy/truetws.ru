@@ -6,7 +6,10 @@
   background: #fafafa;
 
   &__item {
-    border-bottom: 1px solid #e2e2e2;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid #e2e2e2;
+    }
     padding: 4rem 0 2rem 0;
 
     @media (max-width: map-get($grid-breakpoints, 'sm')) {

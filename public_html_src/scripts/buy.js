@@ -7,8 +7,8 @@ const buyForms = [
     document.querySelector('.buy-form__form'),
     document.querySelector('.end-form')
 ];
-
 const price = document.querySelector('.price__number-new').textContent.slice(0, -1);
+
 buyForms.forEach(form => {
     form.addEventListener('submit',  async e => {
         e.preventDefault();
