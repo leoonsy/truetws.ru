@@ -87,6 +87,11 @@ input[type=submit]:focus {
   outline: none !important;
 }
 
+.disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
 .text-blue {
   color: #0c82d0;
 }
