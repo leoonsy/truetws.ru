@@ -1,0 +1,137 @@
+// Как получить наушники
+.how-works {
+  background: #fcfcfc;
+
+  &__header {
+    &::after {
+      border: 5px solid #fcfcfc;
+    }
+
+    @media (max-width: map-get($grid-breakpoints, "sm")) {
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 478px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 340px) {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__main {
+    padding: 1rem 100px 5rem;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: #{map-get($grid-breakpoints, 'xl')}) {
+      padding: 1rem 15px 5rem;
+    }
+
+    @media only screen and (max-width: #{map-get($grid-breakpoints, 'md')}) {
+      padding: 1rem 0 5rem;
+    }
+  }
+
+  &__sequence {
+    display: flex;
+    background: url("~@/images/how-works/how-to.png") center top no-repeat;
+    background-size: 95% auto;
+    height: 350px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 1.3rem;
+  }
+
+  &__basket {
+    flex: 1 0 23%;
+    position: relative;
+    bottom: 100px;
+  }
+
+  &__form {
+    flex: 1 0 18%;
+  }
+
+  &__call {
+    flex: 1 0 21%;
+    position: relative;
+    bottom: 30px;
+  }
+
+  &__send {
+    flex: 1 0 19%;
+  }
+
+  &__check {
+    flex: 1 0 19%;
+  }
+
+  &__sequence-mobile {
+    font-size: 1.2rem;
+    display: none;
+    margin: 1.4rem 0 0 0;
+    text-align: center;
+
+    & p {
+      margin: 0.5rem 0 1rem 0;
+    }
+
+    & img {
+      width: 100px;
+    }
+  }
+
+  &__item-mobile {
+    margin: 25px 0 0 0;
+  }
+}
+
+@media only screen and (max-width: #{map-get($grid-breakpoints, 'xl')}) {
+  .how-works {
+    &__basket {
+      bottom: 50px;
+      left: -10px;
+    }
+
+    &__form {
+      left: 25px;
+      bottom: 5px;
+    }
+
+    &__call {
+      left: 9px;
+      bottom: 25px;
+    }
+
+    &__send {
+      left: 8px;
+      bottom: 10px;
+    }
+
+    &__check {
+      left: 13px;
+    }
+  }
+}
+
+@media only screen and (max-width: #{map-get($grid-breakpoints, 'lg')}) {
+  .how-works {
+    &__sequence {
+      display: none;
+    }
+
+    &__sequence-mobile {
+      display: flex;
+    }
+  }
+}

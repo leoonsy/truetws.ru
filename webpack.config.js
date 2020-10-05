@@ -1,10 +1,7 @@
 //конфигурация webpack
-const path = require('path')
-require('dotenv').config();
-const config = process.env.CONFIG || 'main';
-const mode = process.env.MODE || 'development';
+const { nodeEnv, config } = require('./webpack.helpers');
 
-console.log(`Режим: ${mode}`);
+console.log(`Режим: ${nodeEnv}`);
 console.log(`Конфигурация: ${config}`);
 
 module.exports = require(`./webpack.${config}.config`);

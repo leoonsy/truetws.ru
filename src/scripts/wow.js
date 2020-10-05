@@ -2,6 +2,6 @@
 import WOW from 'wow.js/dist/wow.min';
 
 new WOW({
-    animateClass: "animate__animated",
-    mobile: false
+  animateClass: 'animate__animated',
+  mobile: false,
 }).init();
