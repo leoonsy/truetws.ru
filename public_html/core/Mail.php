@@ -26,13 +26,13 @@ abstract class Mail {
             $mail->CharSet = "utf-8";
             $mail->isSMTP();
             $mail->SMTPAuth = true;
-            $mail->Host = MailConfig::$hostSMTP;
-            $mail->Port = MailConfig::$portSMTP;
+            $mail->Host = $_ENV['HOST_SMTP'];
+            $mail->Port = $_ENV['PORT_SMTP'];
             $mail->SMTPSecure = 'ssl';
-            $mail->Username = MailConfig::$usernameSMTP;
-            $mail->Password = MailConfig::$passwordSMTP;
-            $mail->FromName = MailConfig::$nameSMTP;
-            $mail->From = MailConfig::$usernameSMTP;
+            $mail->Username = $_ENV['USERNAME_SMTP'];
+            $mail->Password = $_ENV['PASSWORD_SMTP'];
+            $mail->FromName = $_ENV['NAME_SMTP'];
+            $mail->From = $_ENV['USERNAME_SMTP'];
 
             foreach (MailConfig::$to as $address)
                 $mail->addAddress($address['email'], $address['name']);

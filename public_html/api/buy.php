@@ -2,6 +2,7 @@
 
 use app\core\OrderMail;
 use app\core\View;
+use Dotenv\Dotenv;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/core/apiCommon.php';
@@ -50,7 +51,9 @@ $orderTxt = View::render(__DIR__ . '/../templates_mail/orderText.tpl', $renderDa
 $orderHtml = View::render(__DIR__ . '/../templates_mail/orderHTML.tpl', $renderData, true);
 
 try {
-    //$mail->send($orderTxt, $orderHtml);
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+    $dotenv->load();
+    $mail->send($orderTxt, $orderHtml);
     sendResponse(['message' => "Сообщение успешно отправлено"]);
 } catch (Exception $e) {
     sendResponse([
