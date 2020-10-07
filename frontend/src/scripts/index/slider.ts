@@ -2,7 +2,7 @@
 import $ from 'jquery';
 import 'slick-carousel/slick/slick';
 
-$('.gift__slider').slick({
+($('.gift__slider') as any).slick({
   infinite: true,
   autoplay: true,
   autoplaySpeed: 3000,

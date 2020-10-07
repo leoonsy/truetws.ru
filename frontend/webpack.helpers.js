@@ -4,6 +4,7 @@ const nodeEnv = process.env.NODE_ENV || 'development';
 const config = process.env.CONFIG || 'main';
 const isDev = nodeEnv === 'development';
 const isProd = !isDev;
+const apiURL = process.env.API_URL;
 
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
@@ -12,3 +13,4 @@ exports.nodeEnv = nodeEnv;
 exports.isDev = isDev;
 exports.isProd = isProd;
 exports.config = config;
+exports.apiURL = apiURL;

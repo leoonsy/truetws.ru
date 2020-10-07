@@ -1,4 +1,4 @@
-import Api from './api';
+import Api from '../common/api';
 const $oldPrice = document.querySelector('.price__number-old');
 const $newPrice = document.querySelector('.price__number-new');
 Api.getPrices().then((data) => {

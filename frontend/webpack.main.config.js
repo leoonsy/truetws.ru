@@ -1,5 +1,11 @@
 //конфигурация webpack
-const { isProd, nodeEnv, isDev, filename } = require('./webpack.helpers');
+const {
+  isProd,
+  nodeEnv,
+  isDev,
+  filename,
+  apiURL,
+} = require('./webpack.helpers');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -12,7 +18,7 @@ const plugins = () => {
   const config = [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(nodeEnv || 'development'),
-      API_URL: JSON.stringify('/api'),
+      API_URL: JSON.stringify(apiURL),
     }),
     new HTMLWebpackPlugin({
       template: './src/index.html',
@@ -37,8 +43,8 @@ const plugins = () => {
 //главная конфигурация (в данном случае для взаимодействия с сервером)
 const mainConfig = merge(baseConfig, {
   entry: {
-    main: './src/scripts/main.js',
-    policy: './src/scripts/policy.js',
+    main: './src/scripts/main.ts',
+    policy: './src/scripts/policy.ts',
   },
   output: {
     filename: `scripts/${filename('js')}`,

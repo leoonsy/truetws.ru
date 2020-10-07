@@ -1,49 +1,53 @@
-import Order from './api';
+import Api from '../common/api';
 import MicroModal from 'micromodal';
 import ym from 'ym';
 
 function changeSubmitButtonsState(isAllowed = true) {
-  const submitButtons = document.querySelectorAll('input[type=submit]');
-  submitButtons.forEach((form) => {
+  const $submitButtons = document.querySelectorAll('input[type=submit]');
+  $submitButtons.forEach(($form) => {
     if (isAllowed) {
-      form.removeAttribute('disabled');
-      form.classList.remove('disabled');
+      $form.removeAttribute('disabled');
+      $form.classList.remove('disabled');
     } else {
-      form.setAttribute('disabled', 'disabled');
-      form.classList.add('disabled');
+      $form.setAttribute('disabled', 'disabled');
+      $form.classList.add('disabled');
     }
   });
 }
 
-const buyForms = [
+const $buyForms = [
   document.querySelector('.header__form'),
   document.querySelector('.modal-form'),
   document.querySelector('.buy-form__form'),
   document.querySelector('.end-form'),
-];
+] as HTMLFormElement[];
 
-buyForms.forEach((form) => {
-  form.addEventListener('submit', async (e) => {
+$buyForms.forEach(($form) => {
+  $form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     changeSubmitButtonsState(false);
 
     const data = {
-      name: form.name.value,
-      phone: form.phone.value,
-      hdn: form.hdn.value,
+      name: ($form.name as any).value,
+      phone: $form.phone.value,
+      hdn: $form.hdn.value,
     };
 
-    const modalTitle = document.querySelector('#modal-message-title');
-    const modalContent = document.querySelector('#modal-message-content');
+    const $modalTitle = document.querySelector(
+      '#modal-message-title'
+    ) as HTMLElement;
+    const $modalContent = document.querySelector(
+      '#modal-message-content'
+    ) as HTMLElement;
     try {
-      await Order.sendOrder(data.name, data.phone, data.hdn);
+      await Api.sendOrder(data.name, data.phone, data.hdn);
       //ym(66123454, 'reachGoal', 'buy');
 
-      modalTitle.innerHTML = 'Спасибо за заказ!';
-      modalTitle.classList.remove('text-danger');
+      $modalTitle.innerHTML = 'Спасибо за заказ!';
+      $modalTitle.classList.remove('text-danger');
 
-      modalContent.innerHTML =
+      $modalContent.innerHTML =
         'Ваш заказ принят! В ближайшее время с Вами свяжется менеджер для уточнения заказа!';
     } catch (err) {
       let message;
@@ -60,17 +64,17 @@ buyForms.forEach((form) => {
           break;
       }
 
-      modalTitle.innerHTML = 'Ошибка!';
-      modalTitle.classList.add('text-danger');
+      $modalTitle.innerHTML = 'Ошибка!';
+      $modalTitle.classList.add('text-danger');
 
-      modalContent.innerHTML = message;
+      $modalContent.innerHTML = message;
     }
 
     changeSubmitButtonsState(true);
 
     MicroModal.show('modal-message', {
       onClose: () => {
-        if (form.className === 'modal-form') MicroModal.show('modal-buy');
+        if ($form.className === 'modal-form') MicroModal.show('modal-buy');
       },
     });
   });
