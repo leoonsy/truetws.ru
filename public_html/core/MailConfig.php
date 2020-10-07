@@ -1,4 +1,5 @@
 <?php
+namespace app\core;
 
 //текущая конфигурация отправки почты
 abstract class MailConfig

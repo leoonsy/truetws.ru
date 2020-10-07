@@ -47,11 +47,11 @@ const mainConfig = merge(baseConfig, {
   },
   plugins: plugins(),
   externals: {
-    ym: {
-      root: 'ym',
-    },
+    ym: 'ym',
   },
   devServer: {
+    contentBase: './dist',
+    watchContentBase: true,
     hot: isDev,
     proxy: {
       '/api': 'http://twsrussia/',

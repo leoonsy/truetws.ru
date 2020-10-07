@@ -61,6 +61,8 @@
     "watch": "webpack --watch"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.2",
     "inputmask": "^5.0.5",

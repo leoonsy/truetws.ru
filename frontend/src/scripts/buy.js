@@ -1,4 +1,4 @@
-import Order from './order';
+import Order from './api';
 import MicroModal from 'micromodal';
 import ym from 'ym';
 
@@ -34,13 +34,11 @@ buyForms.forEach((form) => {
       hdn: form.hdn.value,
     };
 
-    const order = new Order(data.name, data.phone, data.hdn);
-
     const modalTitle = document.querySelector('#modal-message-title');
     const modalContent = document.querySelector('#modal-message-content');
     try {
-      await order.sendOrder();
-      ym(66123454, 'reachGoal', 'buy');
+      await Order.sendOrder(data.name, data.phone, data.hdn);
+      //ym(66123454, 'reachGoal', 'buy');
 
       modalTitle.innerHTML = 'Спасибо за заказ!';
       modalTitle.classList.remove('text-danger');
@@ -49,8 +47,6 @@ buyForms.forEach((form) => {
         'Ваш заказ принят! В ближайшее время с Вами свяжется менеджер для уточнения заказа!';
     } catch (err) {
       let message;
-      console.log(err);
-      debugger;
       switch (err.responseJSON?.type) {
         case 'validationError':
           message =

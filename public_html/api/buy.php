@@ -1,17 +1,18 @@
 <?php
-require_once __DIR__ . '/../core/apiCommon.php';
-require_once __DIR__ . '/../core/rest.php';
-require_once __DIR__ . '/../core/Mail.php';
-require_once __DIR__ . '/../core/OrderMail.php';
-require_once __DIR__ . '/../core/MailConfig.php';
-require_once __DIR__ . '/../core/View.php';
+
+use app\core\OrderMail;
+use app\core\View;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/core/apiCommon.php';
+require_once __DIR__ . '/core/rest.php';
 
 //использую json для взаимодействия, так привычней
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $hdn = $_POST['hdn'];
 $price = json_decode(file_get_contents(__DIR__ . '/../db/main.json'))
-    ->new_price;
+    ->newPrice;
 
 if ($hdn) {
     sendResponse([
@@ -49,7 +50,7 @@ $orderTxt = View::render(__DIR__ . '/../templates_mail/orderText.tpl', $renderDa
 $orderHtml = View::render(__DIR__ . '/../templates_mail/orderHTML.tpl', $renderData, true);
 
 try {
-    $mail->send($orderTxt, $orderHtml);
+    //$mail->send($orderTxt, $orderHtml);
     sendResponse(['message' => "Сообщение успешно отправлено"]);
 } catch (Exception $e) {
     sendResponse([

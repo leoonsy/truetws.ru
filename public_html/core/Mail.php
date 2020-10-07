@@ -1,11 +1,7 @@
 <?php
+namespace app\core;
 
 use PHPMailer\PHPMailer\PHPMailer;
-
-require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
-require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
-require_once __DIR__ . '/MailConfig.php';
 
 abstract class Mail {
     /**
@@ -14,7 +10,7 @@ abstract class Mail {
      * @param array $data
      * @return array
      */
-    public abstract function getErrors($data);
+    public abstract function getErrors(array $data);
 
     /**
      * Отправить сообщение на почту
@@ -22,9 +18,9 @@ abstract class Mail {
      * @param string $txtMessage
      * @param string $htmlMessage
      * @return void
-     * @throws Exception
+     * @throws \Exception
      */
-    public function send($txtMessage, $htmlMessage) {
+    public function send(string $txtMessage, string $htmlMessage) {
         $mail = new PHPMailer(true);
         try {
             $mail->CharSet = "utf-8";
@@ -46,8 +42,8 @@ abstract class Mail {
             $mail->Body    = $htmlMessage;
             $mail->AltBody = $txtMessage;
             $mail->send();
-        } catch (Exception $e) {
-            throw new Exception($mail->ErrorInfo);
+        } catch (\Exception $e) {
+            throw new \Exception($mail->ErrorInfo);
         }
     }
 }
