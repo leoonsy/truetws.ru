@@ -1,7 +1,8 @@
 import $ from 'jquery';
+declare const API_URL: string;
 
 class Api {
-  static async sendOrder(name, phone, hdn) {
+  static async sendOrder(name: string, phone: string, hdn: string) {
     const data = {
       name,
       phone,
