@@ -10,6 +10,7 @@
           v-model="password"
           label="Введите пароль"
           required
+          type="password"
         ></v-text-field>
 
         <v-btn
