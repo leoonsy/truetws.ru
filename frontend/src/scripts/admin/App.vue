@@ -2,8 +2,9 @@
   <div id="app">
     <v-app id="app">
       <vue-progress-bar></vue-progress-bar>
-      <v-main v-if="!loadPage">
+      <v-main v-if="!loadPage" class="main">
         <v-container>
+          <a href="/" class="main__home">На главную</a>
           <div v-if="logged" class="panel">
             <Panel @logged="logged = $event"></Panel>
           </div>
@@ -45,4 +46,15 @@ export default class App extends Vue {
   }
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+.main {
+  &__home {
+    font-size: 25px;
+    display: block;
+    width: 210px;
+    margin: 15px auto;
+    padding: 15px;
+    text-align: center;
+  }
+}
+</style>

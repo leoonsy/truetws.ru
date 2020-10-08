@@ -42,7 +42,7 @@ $buyForms.forEach(($form) => {
     ) as HTMLElement;
     try {
       await Api.sendOrder(data.name, data.phone, data.hdn);
-      //ym(66123454, 'reachGoal', 'buy');
+      ym(66123454, 'reachGoal', 'buy');
 
       $modalTitle.innerHTML = 'Спасибо за заказ!';
       $modalTitle.classList.remove('text-danger');
