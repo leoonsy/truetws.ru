@@ -32,6 +32,12 @@ const plugins = () => {
       minify: isProd,
       chunks: ['policy'],
     }),
+    new HTMLWebpackPlugin({
+      template: './src/admin.html',
+      filename: 'admin.html',
+      minify: isProd,
+      chunks: ['admin'],
+    }),
     new CopyPlugin({
       patterns: [{ from: 'public' }],
     }),
@@ -45,6 +51,7 @@ const mainConfig = merge(baseConfig, {
   entry: {
     main: './src/scripts/main.ts',
     policy: './src/scripts/policy.ts',
+    admin: './src/scripts/admin.ts',
   },
   output: {
     filename: `scripts/${filename('js')}`,

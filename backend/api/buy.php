@@ -53,7 +53,7 @@ $orderHtml = View::render(__DIR__ . '/../templates_mail/orderHTML.tpl', $renderD
 try {
     $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
     $dotenv->load();
-//    $mail->send($orderTxt, $orderHtml);
+    $mail->send($orderTxt, $orderHtml);
     sendResponse(['message' => "Сообщение успешно отправлено"]);
 } catch (Exception $e) {
     sendResponse([

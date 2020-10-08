@@ -20,6 +20,7 @@ module.exports = {
     ],
     'no-unused-vars': 'warn',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
   overrides: [
     {
@@ -29,13 +30,17 @@ module.exports = {
       },
     },
   ],
-  parser: '@typescript-eslint/parser',
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+  },
   plugins: ['@typescript-eslint'],
   extends: [
-    'eslint:recommended',
+    // 'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
     'plugin:vue/recommended',
+    'prettier',
+    'prettier/vue',
+    'prettier/@typescript-eslint',
   ],
 };

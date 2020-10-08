@@ -18,12 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $password = $_POST['password'] ?? null;
-    if (!$password) {
+    $hashedPassword = $_POST['hashedPassword'] ?? null;
+    if (!$hashedPassword) {
         sendResponse(['message' => 'Не введены авторизационные данные'], 401);
     }
     
-    $auth = new Auth($password);
+    $auth = Auth::getFromHashedPassword($hashedPassword);
     if (!$auth->isAdmin()) {
         sendResponse(['message' => 'Неверно введены авторизационные данные'], 401);
     }
@@ -36,6 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (!is_numeric($newPrice) || !is_numeric($oldPrice)) {
         sendResponse(['message' => 'Цена не является числом'], 500); 
+    }
+    
+    if ((int)$newPrice < 0 || (int)$oldPrice < 0) {
+        sendResponse(['message' => 'Цена не может быть отрицательной'], 500);
     }
 
     $db = json_decode(file_get_contents(__DIR__ . '/../db/main.json'));

@@ -1,6 +1,7 @@
 <?php
 namespace app\core;
 
+use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
 abstract class Mail {
@@ -18,7 +19,7 @@ abstract class Mail {
      * @param string $txtMessage
      * @param string $htmlMessage
      * @return void
-     * @throws \Exception
+     * @throws Exception
      */
     public function send(string $txtMessage, string $htmlMessage) {
         $mail = new PHPMailer(true);
@@ -42,8 +43,8 @@ abstract class Mail {
             $mail->Body    = $htmlMessage;
             $mail->AltBody = $txtMessage;
             $mail->send();
-        } catch (\Exception $e) {
-            throw new \Exception($mail->ErrorInfo);
+        } catch (Exception $e) {
+            throw new Exception($mail->ErrorInfo);
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 //инициализация массивов $_PUT и $_POST
-$_PUT = [];
+$_PUT = [1];
 $_DELETE = [];
 
 $contentType = getContentType();
