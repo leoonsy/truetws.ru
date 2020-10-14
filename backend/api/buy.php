@@ -54,12 +54,13 @@ try {
     $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
     $dotenv->load();
     $mail->send($orderTxt, $orderHtml);
+    file_put_contents(__DIR__ . '/../mail.txt', $orderTxt . PHP_EOL . PHP_EOL, FILE_APPEND | LOCK_EX);
     sendResponse(['message' => "Сообщение успешно отправлено"]);
 } catch (Exception $e) {
     sendResponse([
         'type' => 'mailError',
         'message' => $e->getMessage()
-    ]);
+    ], 500);
 }
 
 

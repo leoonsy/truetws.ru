@@ -28,7 +28,7 @@ abstract class Mail {
             $mail->isSMTP();
             $mail->SMTPAuth = true;
             $mail->Host = $_ENV['HOST_SMTP'];
-            $mail->Port = $_ENV['PORT_SMTP'];
+            $mail->Port = (int)$_ENV['PORT_SMTP'];
             $mail->SMTPSecure = 'ssl';
             $mail->Username = $_ENV['USERNAME_SMTP'];
             $mail->Password = $_ENV['PASSWORD_SMTP'];
